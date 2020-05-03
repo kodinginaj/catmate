@@ -11,8 +11,8 @@
                                 <li class="nav-item"> <a class="nav-link active" href="#home">HOME <span class="sr-only">(current)</span></a> </li>
                                 <li class="nav-item"> <a class="nav-link">PROFILE</a> </li>
                                 <li class="nav-item"> <a class="nav-link" href="#gallery">MY CATS</a> </li>
-                                <li class="nav-item"> <a class="nav-link" href="#contact">MASUK</a> </li>
-                                <li class="nav-item"><a href="#" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Daftar</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="<?= base_url('auth'); ?>">MASUK</a> </li>
+                                <li class="nav-item"><a href="<?= base_url('auth/register'); ?>" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Daftar</a></li>
                             </ul>
                         </div>
                     </nav>

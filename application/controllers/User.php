@@ -10,10 +10,10 @@ class User extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Catmate | Aplikasi pencarian jodoh untuk kucing';
-		$this->load->view('template/header_user', $data);
-		$this->load->view('template/menu_user');
-		$this->load->view('template/jumbotron_user');
+		$this->load->view('template/user/header_user', $data);
+		$this->load->view('template/user/menu_user');
+		$this->load->view('template/user/jumbotron_user');
 		$this->load->view('user/index');
-		$this->load->view('template/footer_user');
+		$this->load->view('template/user/footer_user');
 	}
 }
