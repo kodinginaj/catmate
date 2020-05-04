@@ -39,7 +39,7 @@
                                                     <?= form_error('ras_id','<small class="text-danger">','</small>'); ?>
                                             </div>
                                             
-                                            <div class="form-group">
+<!--                                             <div class="form-group">
                                                 <label>Jenis Kelamin:</label>
                                                     <div class="">
                                                     <input type="radio" id="jantan" name="jk" class="" value="Jantan">
@@ -51,7 +51,21 @@
                                                     <label class="" for="betina" style="color: #333;">Betina</label>
                                                     </div>
                                                     <?= form_error('jk','<small class="text-danger">','</small>'); ?>
-                                            </div>
+                                            </div> -->
+                                          <div class="form-group">
+                                            <label>Jenis Kelamin:</label>
+
+                                            <label class="bungkus-radio"><span class="txt-dark">Jantan</span>
+                                              <input type="radio" value="Jantan" checked="checked" name="jk">
+                                              <span class="checkmark"></span>
+                                            </label>
+                                            <label class="bungkus-radio"><span class="txt-dark">Betina</span>
+                                              <input type="radio" value="Betina" checked="checked" name="jk">
+                                              <span class="checkmark"></span>
+                                            </label>
+                                            <?= form_error('jk','<small class="text-danger">','</small>'); ?>
+
+                                           </div>
 
 
                                             <div class="form-group">
@@ -59,6 +73,7 @@
                                                     <input type="date" name="tanggal_lahir" class="form-control">
                                                     <?= form_error('tanggal_lahir','<small class="text-danger">','</small>'); ?>
                                             </div>
+
 
                                             <div class="form-group">
                                                     <label for="nama_kucings">Bio:</label>

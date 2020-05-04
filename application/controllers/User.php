@@ -21,6 +21,7 @@ class User extends CI_Controller {
 		$this->load->view('template/user/header_user', $data);
 		$this->load->view('template/user/menu_user');
 		$this->load->view('template/user/jumbotron_user');
+		$this->load->view('template/user/searchengine');
 		$this->load->view('user/index', $data);
 		$this->load->view('template/user/footer_user');
 	}
@@ -113,6 +114,15 @@ class User extends CI_Controller {
 		$this->load->view('user/tambahkucing', $dataras);
 		$this->load->view('template/user/footer_user');
 	}
-	
+
+	public function carikucing(){
+		$data['title'] = 'Catmate | Aplikasi pencarian jodoh untuk kucing';
+		$this->load->view('template/user/header_user', $data);
+		$this->load->view('template/user/menu_user');
+		$this->load->view('template/user/searchengine');
+		$this->load->view('user/carikucing');
+		$this->load->view('template/user/footer_user');
+	}
+
 }
 
