@@ -14,7 +14,7 @@ class Auth extends CI_Controller {
 		$this->load->view('template/auth/header_auth', $data);
 		$this->load->view('auth/login');
 		$this->load->view('template/auth/footer_auth');
-		
+
 	}
 
 	public function register()
@@ -23,7 +23,7 @@ class Auth extends CI_Controller {
 		$this->load->view('template/auth/header_auth', $data);
 		$this->load->view('auth/register');
 		$this->load->view('template/auth/footer_auth');
-		
+
 	}
 
 	public function registerProses(){
@@ -35,13 +35,13 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
 		$this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[8]|matches[konfirmasipassword]');
 		$this->form_validation->set_rules('konfirmasipassword', 'Konfirmasi Password', 'required|trim|min_length[8]|matches[password]');
-		
+
 		$this->form_validation->set_message('required', '%s harus diisi');
 		$this->form_validation->set_message('min_length', '%s minimal 8 karakter');
 		$this->form_validation->set_message('valid_email', '%s tidak valid');
 		$this->form_validation->set_message('is_unique', '%s sudah digunakan');
 		$this->form_validation->set_message('matches', '%s tidak sesuai');
- 
+
 
 		if ($this->form_validation->run() == false) {
             $data['title'] = 'Register';
@@ -73,7 +73,7 @@ class Auth extends CI_Controller {
 			}
 		}
 
-		
+
 	}
 
 	public function loginProses(){
@@ -88,10 +88,10 @@ class Auth extends CI_Controller {
 			$this->load->view('template/auth/footer_auth');
 
         } else {
-			
+
 			$admin = $this->UserModel->getDataUser('admin',$email);
 			$user = $this->UserModel->getDataUser('user',$email);
-		
+
 			if ($user) {
 				if (password_verify($password, $user['password'])) {
 					$data = [
@@ -182,6 +182,6 @@ class Auth extends CI_Controller {
 		}else{
 			echo "Ada kesalahan";
 		}
-		
+
 	}
 }

@@ -28,7 +28,7 @@ class User extends CI_Controller {
 	public function mycats()
 	{
 		$data['title'] = 'Catmate | Aplikasi pencarian jodoh untuk kucing';
-		
+
 		$kucing = $this->KucingModel->getMyCats($this->session->userdata('id'));
 		$datakucing['kucing'] = $kucing;
 
@@ -106,13 +106,12 @@ class User extends CI_Controller {
 	{
 		$data['title'] = 'Catmate | Aplikasi pencarian jodoh untuk kucing';
 		$dataras['ras'] = $this->RasModel->getRas();
-		
+
 
 		$this->load->view('template/user/header_user', $data);
 		$this->load->view('template/user/menu_user');
 		$this->load->view('user/tambahkucing', $dataras);
 		$this->load->view('template/user/footer_user');
 	}
-	
-}
 
+}
