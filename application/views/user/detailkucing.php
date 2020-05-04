@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="recent-post">
+                    <div class="recent-post shadow">
                         <table class="w-100">
                             <tbody>
                                 <tr>

@@ -15,7 +15,7 @@
     <script src="<?= base_url('assets/js/script_user.js'); ?>"></script>
 
     <!-- SELECT 2 -->
-    <script src="<?= base_url('vendor/select2/js/select2.js'); ?>"></script>
+    <script src="<?= base_url('assets/vendor/select2/js/select2.js'); ?>"></script>
     <!-- AKHIR SELECT 2 -->
 
     <!-- Custom JS -->

@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
 
   <!-- SELECT 2 -->
-  <link href="<?= base_url('vendor/select2/css/select2.css'); ?>" rel="stylesheet" />
+  <link href="<?= base_url('assets/vendor/select2/css/select2.css'); ?>" rel="stylesheet" />
   <!-- AKHIR SELECT 2 -->
 
     <!-- Bootstrap CSS -->
