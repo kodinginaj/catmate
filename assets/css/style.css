@@ -37,12 +37,12 @@ body {
 }
 
 a {
-    color: #e38cb7;
+    color: #ff9597;
 }
 
 a:hover,
 a:focus {
-    color: #d6619c;
+    color: #fa398f;
 }
 
 h1 {
@@ -91,10 +91,10 @@ p {
 .bungkus-card img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 203px;
 }
 
-.overlay {
+.bungkus-card .overlay {
   position: absolute;
   bottom: 100%;
   left: 0;
@@ -123,6 +123,50 @@ p {
   text-align: center;
 }
 /* AKHIR HOVER IMAGE */
+
+/* AWAL OPACITY IMAGE */
+.bungkus-card-tambah {
+  position: relative;
+  width: 100%;
+}
+
+.bungkus-card-tambah img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.bungkus-card-tambah .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgba(255,149,151,0.8);
+}
+
+.bungkus-card-tambah:hover .overlay {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* AKHIR OPACITY IMAGE */
 
 /* AWAL SEARCH */
 .flexsearch--wrapper {
@@ -246,6 +290,26 @@ input:-moz-placeholder {
     border: 1px solid #ddd;
 }
 
+
+.btn-secondary-category {
+    color: #333;
+    background-color: #eee;
+    border-color: #eee;
+}
+
+.btn-secondary-category-active {
+    color: #333;
+    background-color: #ff9597;
+    border-color: #ff9597;
+}
+
+.badge-primary {
+    background-color: #ff9597;
+}
+
+.badge-primary-active {
+    background-color: #fff;
+}
 p.lead {
     color: #e38cb7;
     margin-bottom: 2rem;
@@ -295,6 +359,16 @@ p.lead {
     padding: 0.6rem 2rem;
     border: 0;
     color: white;
+}
+
+.btn-catmate-secondary {
+    border-radius: 3px;
+    border: 3px solid #ff9597;
+    box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.2);
+    font-weight: 500;
+    color: #ff9597;
+    padding: 10px 1rem;
+    font-size: 15px;
 }
 
 .bg-pink {

@@ -76,6 +76,12 @@
 							Login					
 						</a>
 					</div>
+					<hr />
+					<div class="text-center w-full mt-4">
+						<span class="txt1">
+							<a href="<?= base_url('user'); ?>">Back to Home</a>
+						</span>
+					</div>
 				</form>
 			</div>
 		</div>
