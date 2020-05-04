@@ -205,6 +205,10 @@ p {
   cursor: pointer;
 }
 
+.file-field {
+    position: relative;
+}
+
 .text {
   color: white;
   font-size: 20px;
