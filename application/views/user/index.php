@@ -3,6 +3,7 @@
         <div class="container">
             <div class="row">
 
+
               <?php
               foreach($kucing as $row): ?>
 
@@ -27,6 +28,7 @@
                 ?>
 
                 </div>
+
             </div>
 
             <div class="row">

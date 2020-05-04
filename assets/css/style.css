@@ -83,6 +83,57 @@ p {
     color: #959094;
 }
 
+/* AWAL RECENT POST */
+
+
+    .recent-post {
+      border: 1px solid #eee;
+      margin-top: 30px;
+    }
+
+    .recent-post th {
+      height: 50px;
+      padding-left: 10px;
+      font-size: 25px;
+      font-weight: 400;
+      text-align: center;
+    }
+    .recent-post img {
+      width: 205px;
+      height: 265px;
+      overflow: hidden;
+      padding: 5px;
+      border: 1px dashed #ccc;
+      margin-left: 14px;
+      margin-right: 18px;
+      margin-top: 22px;
+      margin-bottom: 14px;
+      float: left;
+    }
+
+    .recent-post a{
+      color: black;
+      text-decoration: none
+    }
+    .recent-post h1 {
+      font-size: 28px;
+      margin-top: 18px;
+      font-weight: bold;
+      margin-bottom: 0;
+      height: 33px;
+      overflow: hidden;
+      font-weight: 400;
+    }
+
+    .recent-post p {
+      font-size: 20px;
+      height: 98px;
+      margin-top: 10px;
+      /*background-color: blue;*/
+      overflow: hidden;
+    }
+/* AKHIR RECENT POST */
+
 /* AWAL HOVER IMAGE */
 .bungkus-card {
   position: relative;
@@ -361,6 +412,21 @@ p.lead {
     color: white;
 }
 
+.tb-kucing tr, td {
+    padding: 0px 10px 10px 10px;
+}
+
+.bungkus-img-detail {
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+} 
+.bungkus-img-detail img {
+    max-width: 100%;
+    height: auto;
+    padding-bottom: 25px;
+}
+
 .btn-catmate-secondary {
     border-radius: 3px;
     border: 3px solid #ff9597;
@@ -373,6 +439,7 @@ p.lead {
 
 .bg-pink {
     background-color: #ff9597;
+    color: #fff;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -471,6 +538,69 @@ p.lead {
     font-weight: 500;
 }
 @media (min-width: 992px) {
+
+    .bungkus-img-detail {
+        max-width: 270px;
+        height: auto;
+        overflow: hidden;
+    } 
+    .bungkus-img-detail img {
+        max-width: 270px;
+        height: auto;
+        padding-bottom: 0px;
+    }
+
+    /* AWAL RECENT POST */
+
+
+    .recent-post {
+      border: 1px solid #eee;
+      margin-top: 0px;
+    }
+
+    .recent-post th {
+      height: 42px;
+      padding-left: 10px;
+      font-size: 18px;
+      font-weight: 400;
+      text-align: left;
+    }
+    .recent-post img {
+      width: 120px;
+      height: 155px;
+      overflow: hidden;
+      padding: 5px;
+      border: 1px dashed #ccc;
+      margin-left: 10px;
+      margin-right: 12px;
+      margin-top: 18px;
+      margin-bottom: 10px;
+      float: left;
+    }
+
+    .recent-post a{
+      color: black;
+      text-decoration: none
+    }
+    .recent-post h1 {
+      font-size: 22px;
+      margin-top: 16px;
+      margin-bottom: 0;
+      height: 30px;
+      overflow: hidden;
+      font-weight: 400;
+    }
+
+    .recent-post p {
+        margin-top: 5px;
+      font-size: 16px;
+      height: 100px;
+      overflow: hidden;
+      /*background-color: green;*/
+    }
+/* AKHIR RECENT POST */
+
+
     .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: 1rem;
         padding-left: 1rem;

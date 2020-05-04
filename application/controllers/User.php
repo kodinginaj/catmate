@@ -32,7 +32,18 @@ class User extends CI_Controller {
 		$this->load->view('template/user/footer_user');
 	}
 
+
 	public function tambahKucing(){
 			$data = $this->UserModel->tambahKucing();
 	}
+
+	public  function detailkucing()
+	{
+		$data['title'] = 'Catmate | Aplikasi pencarian jodoh untuk kucing';
+		$this->load->view('template/user/header_user', $data);
+		$this->load->view('template/user/menu_user');
+		$this->load->view('user/detailkucing');
+		$this->load->view('template/user/footer_user');
+	}
 }
+
