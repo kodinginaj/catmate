@@ -8,12 +8,12 @@
                         <a class="navbar-brand" href="index.html"><!-- <img src="<?= base_url('assets/images/logo.png'); ?>" class="img-fluid" alt="logo"> -->CATMATE</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
                         <div class="collapse navbar-collapse" id="navbar">
                             <ul class="navbar-nav ml-auto">
-                                <li class="nav-item"> <a class="nav-link active" href="<?= base_url('user'); ?>">HOME <span class="sr-only">(current)</span></a> </li>
+                                <li class="nav-item"> <a class="nav-link" id="menu-home" href="<?= base_url('user'); ?>">HOME <span class="sr-only">(current)</span></a> </li>
                                 
                                 
                                 <?php if($this->session->userdata('role')): ?>
-                                    <li class="nav-item"> <a class="nav-link" href="">PROFILE</a> </li>
-                                    <li class="nav-item"> <a class="nav-link" href="<?= base_url('user/mycats'); ?>">MY CATS</a> </li>
+                                    <li class="nav-item"> <a class="nav-link" id="menu-profile" href="">PROFILE</a> </li>
+                                    <li class="nav-item"> <a class="nav-link" id="menu-mycats" href="<?= base_url('user/mycats'); ?>">MY CATS</a> </li>
                                     <li class="nav-item"> <a class="nav-link" href="<?= base_url('auth/logout'); ?>">LOGOUT</a> </li>
                                 <?php else: ?>
                                     <li class="nav-item"> <a class="nav-link" href="<?= base_url('auth'); ?>">MASUK</a> </li>
@@ -27,3 +27,5 @@
             </div>
         </div>
     </div>
+
+  

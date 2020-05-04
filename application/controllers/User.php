@@ -40,36 +40,51 @@ class User extends CI_Controller {
 
 
 	public function tambahKucingProses(){
-			$foto = $_FILES['foto']['name'];
+			$this->form_validation->set_rules('nama', 'Nama', 'required|trim');
+			$this->form_validation->set_rules('ras_id', 'Ras', 'required|trim');
+			$this->form_validation->set_rules('jk', 'Jenis kelamin', 'required|trim');
+			$this->form_validation->set_rules('tanggal_lahir', 'Tanggal lahir', 'required|trim');
+			$this->form_validation->set_rules('biodata', 'Alamat', 'required|trim');
+			$this->form_validation->set_rules('sosial_media', 'Sosial media', 'required|trim');
+			$this->form_validation->set_rules('foto', 'Foto', 'required|trim');
 
-			$config = array();
-			$config['allowed_types'] = 'jpg|png|pdf|doc';
-			$config['max_size'] = '2048';
-			$config['upload_path'] = './assets/img_kucing';
+			$this->form_validation->set_message('required', '%s harus diisi');
 
-			$this->load->library('upload', $config, 'fotokucing');
-			$this->fotokucing->initialize($config);
-			$this->fotokucing->do_upload('foto');
+			if ($this->form_validation->run() == false) {
+				$this->tambahKucing();
+        	} else {
 
-			$data = [
-				"user_id" => $this->input->post("user_id"),
-				"ras_id" => $this->input->post("ras_id"),
-				"nama" => $this->input->post("nama"),
-				"jk" => $this->input->post("jk"),
-				"tanggal_lahir" => $this->input->post("tanggal_lahir"),
-				"foto" => '/assets/img_kucing/'.$foto,
-				"biodata" => $this->input->post("biodata"),
-				"sosial_media" => $this->input->post("sosial_media"),
-			];
+				$foto = $_FILES['foto']['name'];
 
-			$result = $this->UserModel->tambahKucing($data);
+				$config = array();
+				$config['allowed_types'] = 'jpg|png|pdf|doc';
+				$config['max_size'] = '2048';
+				$config['upload_path'] = './assets/img_kucing';
 
-			if ($result) {
-				$this->session->set_flashdata('message', 'Kucing berhasil ditambah');
-				redirect('user/mycats');
-			}else{
-				$this->session->set_flashdata('message', 'Ada kesalahan');
-				redirect('user/tambahKucing');
+				$this->load->library('upload', $config, 'fotokucing');
+				$this->fotokucing->initialize($config);
+				$this->fotokucing->do_upload('foto');
+
+				$data = [
+					"user_id" => $this->input->post("user_id"),
+					"ras_id" => $this->input->post("ras_id"),
+					"nama" => $this->input->post("nama"),
+					"jk" => $this->input->post("jk"),
+					"tanggal_lahir" => $this->input->post("tanggal_lahir"),
+					"foto" => '/assets/img_kucing/'.$foto,
+					"biodata" => $this->input->post("biodata"),
+					"sosial_media" => $this->input->post("sosial_media"),
+				];
+
+				$result = $this->UserModel->tambahKucing($data);
+
+				if ($result) {
+					$this->session->set_flashdata('message', 'Kucing berhasil ditambah');
+					redirect('user/mycats');
+				}else{
+					$this->session->set_flashdata('message', 'Ada kesalahan');
+					redirect('user/tambahKucing');
+				}
 			}
 
 
