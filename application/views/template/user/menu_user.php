@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <nav class="navbar navbar-dark navbar-expand-lg ">
+                    <nav class="navbar navbar-dark navbar-expand-lg">
                         <a class="navbar-brand" href="index.html"><!-- <img src="<?= base_url('assets/images/logo.png'); ?>" class="img-fluid" alt="logo"> -->CATMATE</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
                         <div class="collapse navbar-collapse" id="navbar">
                             <ul class="navbar-nav ml-auto">
