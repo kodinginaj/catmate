@@ -5,7 +5,9 @@ class User extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-				$this->load->model("UserModel");
+		$this->load->model("UserModel");
+		$this->load->model("RasModel");
+		$this->load->model("KucingModel");
     }
 
 	public function index()
@@ -26,9 +28,13 @@ class User extends CI_Controller {
 	public function mycats()
 	{
 		$data['title'] = 'Catmate | Aplikasi pencarian jodoh untuk kucing';
+		
+		$kucing = $this->KucingModel->getMyCats($this->session->userdata('id'));
+		$datakucing['kucing'] = $kucing;
+
 		$this->load->view('template/user/header_user', $data);
 		$this->load->view('template/user/menu_user');
-		$this->load->view('user/mycats');
+		$this->load->view('user/mycats',$datakucing);
 		$this->load->view('template/user/footer_user');
 	}
 
@@ -59,10 +65,13 @@ class User extends CI_Controller {
 			$result = $this->UserModel->tambahKucing($data);
 
 			if ($result) {
-				echo "Berhasil";
+				$this->session->set_flashdata('message', 'Kucing berhasil ditambah');
+				redirect('user/mycats');
 			}else{
-				echo "Gagal";
+				$this->session->set_flashdata('message', 'Ada kesalahan');
+				redirect('user/tambahKucing');
 			}
+
 
 
 
@@ -81,10 +90,14 @@ class User extends CI_Controller {
 	public function tambahkucing()
 	{
 		$data['title'] = 'Catmate | Aplikasi pencarian jodoh untuk kucing';
+		$dataras['ras'] = $this->RasModel->getRas();
+		
+
 		$this->load->view('template/user/header_user', $data);
 		$this->load->view('template/user/menu_user');
-		$this->load->view('user/tambahkucing');
+		$this->load->view('user/tambahkucing', $dataras);
 		$this->load->view('template/user/footer_user');
 	}
+	
 }
 

@@ -1,3 +1,8 @@
+<?php if($this->session->flashdata('message')!=null): ?>
+<script>
+    window.alert('<?= $this->session->flashdata('message') ?>')
+</script>
+<?php endif; ?>
 
     <!-- // end .section -->
     <div class="section">
@@ -30,14 +35,17 @@
                     </div>
                 </div>
                 
+                <?php 
+                // var_dump($kucing);
+                foreach ($kucing as $row ) : ?>
                 <div class="col-lg-3 mb-4">
                     <div class="card pricing popular">
                         <div class="card-body">
                             <div class="bungkus-card">
-                                <img src="<?= base_url('assets/img_kucing/kucing1.jpg'); ?>" class="w-100">
+                                <img src="<?= base_url(''.$row['foto']); ?>" class="w-100">
                                 <div class="overlay">
                                     <div class="text">
-                                        Persia Ambon
+                                        <?= $row['nama'] ?>
                                     </div>
                                 </div>
                             </div>
@@ -53,6 +61,7 @@
                         </div>
                     </div>
                 </div>
+                <?php endforeach; ?>
 
               
                
@@ -89,6 +98,8 @@
 
     </div>
     <!-- // end .section -->
+
+
 
 
    
