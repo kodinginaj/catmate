@@ -14,74 +14,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-catmate btn-lg btn-block mt-4">Detail Kucing</a>
+                            <a href="<?= base_url('user/detailkucing'); ?>" class="btn btn-catmate btn-lg btn-block mt-4">Detail Kucing</a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="col-lg-3 mb-4">
-                    <div class="card pricing popular">
-                        <div class="card-body">
-                            <div class="bungkus-card">
-                                <img src="<?= base_url('assets/img_kucing/kucing1.jpg'); ?>" class="w-100">
-                                <div class="overlay">
-                                    <div class="text">
-                                        Persia Ambon
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#" class="btn btn-catmate btn-lg btn-block mt-4">Detail Kucing</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 mb-4">
-                    <div class="card pricing popular">
-                        <div class="card-body">
-                            <div class="bungkus-card">
-                                <img src="<?= base_url('assets/img_kucing/kucing1.jpg'); ?>" class="w-100">
-                                <div class="overlay">
-                                    <div class="text">
-                                        Persia Ambon
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#" class="btn btn-catmate btn-lg btn-block mt-4">Detail Kucing</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 mb-4">
-                    <div class="card pricing popular">
-                        <div class="card-body">
-                            <div class="bungkus-card">
-                                <img src="<?= base_url('assets/img_kucing/kucing1.jpg'); ?>" class="w-100">
-                                <div class="overlay">
-                                    <div class="text">
-                                        Persia Ambon
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#" class="btn btn-catmate btn-lg btn-block mt-4">Detail Kucing</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 mb-4">
-                    <div class="card pricing popular">
-                        <div class="card-body">
-                            <div class="bungkus-card">
-                                <img src="<?= base_url('assets/img_kucing/kucing1.jpg'); ?>" class="w-100">
-                                <div class="overlay">
-                                    <div class="text">
-                                        Persia Ambon
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#" class="btn btn-catmate btn-lg btn-block mt-4">Detail Kucing</a>
-                        </div>
-                    </div>
-                </div>
+               
+               
             </div>
 
             <div class="row">
