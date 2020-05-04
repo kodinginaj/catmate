@@ -18,7 +18,7 @@
                                     <div class="w-100 h-100">
                                        <div class="form-group">
                                             <label for="nama_kucings">Nama Kucing:</label>
-                                            <input type="" id="nama_kucing" class="form-control" name="">
+                                            <input type="" id="nama_kucing" class="form-control" name="" placeholder="Nama Kucing">
                                        </div>
                                        <div class="form-group">
                                             <label for="nama_kucings">Jenis / Ras Kucing:</label>
@@ -29,15 +29,17 @@
                                        </div>
                                        <div class="form-group">
                                         <label>Jenis Kelamin:</label>
-                                           <div class="">
-                                              <input type="radio" id="jantan" name="customRadio" class="">
-                                              <label class="" for="jantan" style="color: #333;">Jantan</label>
-                                            </div>
 
-                                            <div class="">
-                                              <input type="radio" id="betina" name="customRadio" class="">
-                                              <label class="" for="betina" style="color: #333;">Betina</label>
-                                            </div>
+                                        <label class="bungkus-radio"><span class="txt-dark">Jantan</span>
+                                          <input type="radio" checked="checked" name="radio">
+                                          <span class="checkmark"></span>
+                                        </label>
+                                        <label class="bungkus-radio"><span class="txt-dark">Betina</span>
+                                          <input type="radio" checked="checked" name="radio">
+                                          <span class="checkmark"></span>
+                                        </label>
+                                        
+                                           
                                        </div>
                                         <div class="form-group">
                                             <label for="nama_kucings">Tanggal Lahir:</label>
