@@ -43,7 +43,7 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_message('matches', '%s tidak sesuai');
  
 
-		 if ($this->form_validation->run() == false) {
+		if ($this->form_validation->run() == false) {
             $data['title'] = 'Register';
 			$this->load->view('template/auth/header_auth', $data);
 			$this->load->view('auth/register');

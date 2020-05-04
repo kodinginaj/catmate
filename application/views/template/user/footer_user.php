@@ -20,6 +20,18 @@
 
     <!-- Custom JS -->
     <script src="<?= base_url('assets/js/script.js'); ?>"></script>
+    <script>
+    $(document).ready(function(){
+        if (window.location.href.indexOf("user/profil") > -1) {
+            $('#menu-profile').addClass('active');
+        }else if (window.location.href.indexOf("user/mycats") > -1) {
+            $('#menu-mycats').addClass('active');
+        }else{
+            $('#menu-home').addClass('active');
+        }
+    });
+    </script>
+
 
 </body>
 

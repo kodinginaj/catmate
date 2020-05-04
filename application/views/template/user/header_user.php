@@ -27,4 +27,5 @@
     <!-- Main css -->
     <link href="<?= base_url('assets/css/style.css'); ?>" rel="stylesheet">
     
+    
 </head>

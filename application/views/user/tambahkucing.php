@@ -21,60 +21,73 @@
                                     </div>
                                     <div class="col-lg-7" style="display: flex; flex-direction: column;">
                                         <div class="w-100 h-100">
-                                        <div class="form-group">
-                                                <label for="nama_kucings">Nama Kucing:</label>
-                                                <input type="text" id="nama_kucing" class="form-control" name="nama">
-                                                <input type="hidden" id="nama_kucing" class="form-control" name="user_id" value="<?= $this->session->userdata('id') ?>">
-                                        </div>
-                                        <div class="form-group">
-                                                <label for="nama_kucings">Jenis / Ras Kucing:</label>
-                                                <select class="form-control select2 w-100" name="ras_id">
-                                                    <option value="">Pilih Ras</option>
-                                                    <?php foreach($ras as $row): ?>
-                                                        <option value="<?= $row['id'] ?>" ><?= $row['nama'] ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Jenis Kelamin:</label>
-                                            <div class="">
-                                                <input type="radio" id="jantan" name="jk" class="" value="Jantan">
-                                                <label class="" for="jantan" style="color: #333;">Jantan</label>
-                                                </div>
-
-                                                <div class="">
-                                                <input type="radio" id="betina" name="jk" class="" value="Betina"> 
-                                                <label class="" for="betina" style="color: #333;">Betina</label>
-                                                </div>
-                                        </div>
                                             <div class="form-group">
-                                                <label for="nama_kucings">Tanggal Lahir:</label>
-                                                <input type="date" name="tanggal_lahir" class="form-control">
-                                        </div>
-
-                                        <div class="form-group">
-                                                <label for="nama_kucings">Bio:</label>
-                                                <textarea class="form-control" rows="3" name="biodata"></textarea>
-                                        </div>
-
-                                        <div class="form-group">
-                                                <label for="nama_kucings">Social Media:</label>
-                                                <input type="text" id="nama_kucing" class="form-control" name="sosial_media" placeholder="(cth: https://insagram.com/catcute)">
-                                        </div>
-
-
-                                        <div class="form-group">
-                                            <label>Foto Kucing:</label>
-                                            <div class="file-field">
-                                            <div class="btn btn-catmate float-left" onclick="chooseFile();" style="cursor: pointer"><span>Choose file</span></div>
-                                                
-                                                <input type="file" id="fileInput" name="foto" style="display: none;" class="btn-upload-profile"/>
+                                                    <label for="nama_kucings">Nama Kucing:</label>
+                                                    <input type="text" id="nama_kucing" class="form-control" name="nama">
+                                                    <input type="hidden" id="nama_kucing" class="form-control" name="user_id" value="<?= $this->session->userdata('id') ?>">
+                                                    <?= form_error('nama','<small class="text-danger">','</small>'); ?>
+                                            </div>
                                             
-                                            <div class="file-path-wrapper">
-                                                <span class="">&nbsp; No file uploaded</span>
+                                            <div class="form-group">
+                                                    <label for="nama_kucings">Jenis / Ras Kucing:</label>
+                                                    <select class="form-control select2 w-100" name="ras_id">
+                                                        <option value="">Pilih Ras</option>
+                                                        <?php foreach($ras as $row): ?>
+                                                            <option value="<?= $row['id'] ?>" ><?= $row['nama'] ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                    <?= form_error('ras_id','<small class="text-danger">','</small>'); ?>
                                             </div>
+                                            
+                                            <div class="form-group">
+                                                <label>Jenis Kelamin:</label>
+                                                    <div class="">
+                                                    <input type="radio" id="jantan" name="jk" class="" value="Jantan">
+                                                    <label class="" for="jantan" style="color: #333;">Jantan</label>
+                                                    </div>
+
+                                                    <div class="">
+                                                    <input type="radio" id="betina" name="jk" class="" value="Betina"> 
+                                                    <label class="" for="betina" style="color: #333;">Betina</label>
+                                                    </div>
+                                                    <?= form_error('jk','<small class="text-danger">','</small>'); ?>
                                             </div>
-                                        </div>
+
+
+                                            <div class="form-group">
+                                                    <label for="nama_kucings">Tanggal Lahir:</label>
+                                                    <input type="date" name="tanggal_lahir" class="form-control">
+                                                    <?= form_error('tanggal_lahir','<small class="text-danger">','</small>'); ?>
+                                            </div>
+
+                                            <div class="form-group">
+                                                    <label for="nama_kucings">Bio:</label>
+                                                    <textarea class="form-control" rows="3" name="biodata"></textarea>
+                                                    <?= form_error('biodata','<small class="text-danger">','</small>'); ?>
+                                            </div>
+
+                                            <div class="form-group">
+                                                    <label for="nama_kucings">Social Media:</label>
+                                                    <input type="text" class="form-control" name="sosial_media" placeholder="(cth: https://insagram.com/catcute)">
+                                                    <?= form_error('sosial_media','<small class="text-danger">','</small>'); ?>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label>Foto Kucing:</label>
+                                                <div class="file-field">
+                                                    <div class="btn btn-catmate float-left" onclick="chooseFile();" style="cursor: pointer"><span>Choose file</span></div>
+                                                        
+                                                    <input type="file" id="fileInput" name="foto" style="display: none;" class="btn-upload-profile"/>
+                                                    
+                                                    <div class="file-path-wrapper">
+                                                        <span class="">&nbsp; No file uploaded</span>
+                                                    </div>
+                                                    
+                                                </div>
+                                               
+                                            </div>
+                                             <?= form_error('foto','<small class="text-danger">','</small>'); ?>
                                         </div>
 
                                         <div class="w-100">
