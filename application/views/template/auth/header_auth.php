@@ -21,5 +21,14 @@
 	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/login/css/util.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/login/css/main.css'); ?>">
 <!--===============================================================================================-->
+
+<!--===============================================================================================-->	
+	<script src="<?= base_url('assets/login/vendor/jquery/jquery-3.2.1.min.js'); ?>"></script>
+
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBU4b7TsCaBmp5mg4VTqVStB0h19XxxeTY&libraries=places"></script>
+
+
+
+
 </head>
 <body>
