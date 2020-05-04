@@ -16,6 +16,7 @@
                 <div class="col-lg-3 mb-4">
                     <div class="card pricing popular">
                         <div class="card-body">
+                            <a href="<?= base_url('user/tambahkucing'); ?>">
                             <div class="bungkus-card-tambah">
                                 <img src="<?= base_url('assets/images/addcat.png'); ?>" class="w-100">
                                 <div class="overlay">
@@ -24,6 +25,7 @@
                                     </div>
                                 </div>
                             </div>
+                            </a>
                         </div>
                     </div>
                 </div>

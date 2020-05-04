@@ -35,6 +35,7 @@ $(function() {
     menuscroll();
     $(window).on('load', function() {
         menuscroll();
+       
     });
     /*-----------------------------------
      * NAVBAR CLOSE ON CLICK
