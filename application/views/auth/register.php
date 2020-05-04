@@ -1,91 +1,115 @@
-<!-- <script>
-	var alamat = 'alamat';
+<script>
+	// var alamat = 'alamat';
+
+	// $(document).ready(function(){
+	// 	var autocomplete;
+	// 	autocomplete = new google.maps.places.Autocomplete((document.getElementById(alamat)),{
+	// 		types: ['geocode']
+	// 	});
+
+	// 	google.maps.event.addListener(autocomplete, 'place_changed',function(){
+	// 		var tempat_terdekat = autocomplete.getPlace();
+	// 		document.getElementById('latitude_input').value = tempat_terdekat.geometry.location.lat();
+	// 		document.getElementById('longitude_input').value = tempat_terdekat.geometry.location.lng();
+
+	// 		document.getElementById('longitude_view').innerHTML = tempat_terdekat.geometry.location.lng();
+	// 		document.getElementById('longitude_view').innerHTML = tempat_terdekat.geometry.location.lng();
+	// 	})
+
+	// });
+	// $(document).on('change','#'+alamat, function(){
+	// 	document.getElementById('latitude_input').value = '';
+	// 	document.getElementById('longitude_input').value = '';
+
+	// 	document.getElementById('longitude_view').innerHTML = '';
+	// 	document.getElementById('latitude_view').innerHTML = '';
+	// });
 
 	$(document).ready(function(){
-		var autocomplete;
-		autocomplete = new google.maps.places.Autocomplete((document.getElementById(alamat)),{
-			types: ['geocode']
-		});
-
-		google.maps.event.addListener(autocomplete, 'place_changed',function(){
-			var tempat_terdekat = autocomplete.getPlace();
-			document.getElementById('latitude_input').value = tempat_terdekat.geometry.location.lat();
-			document.getElementById('longitude_input').value = tempat_terdekat.geometry.location.lng();
-
-			document.getElementById('longitude_view').innerHTML = tempat_terdekat.geometry.location.lng();
-			document.getElementById('longitude_view').innerHTML = tempat_terdekat.geometry.location.lng();
-		})
-
-	});
-	$(document).on('change','#'+alamat, function(){
-		document.getElementById('latitude_input').value = '';
-		document.getElementById('longitude_input').value = '';
-
-		document.getElementById('longitude_view').innerHTML = '';
-		document.getElementById('latitude_view').innerHTML = '';
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position){
+				$('#latitude_input').val(position.coords.latitude);
+				$('#longitude_input').val(position.coords.longitude);
+				// console.log(position.coords.latitude);
+			})
+		}else{
+			console.log("gaada");
+		}
 	});
 
 
-</script> -->
+</script> 
 	
 <div class="limiter">
 	<div class="container-login100">
 		<div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
-			<form class="login100-form validate-form">
+			<!-- <form action="<?= base_url('auth/registerProses') ?>" method="post" class="login100-form validate-form"  > -->
+			<form action="<?= base_url('auth/registerProses') ?>" method="post"  >
 				<span class="login100-form-title p-b-55">
 					Register
 				</span>
 
-				<div class="wrap-input100 validate-input m-b-16">
-					<input class="input100" type="text" name="text" placeholder="Nama">
+				<div class="wrap-input100 validate-input m-b-16" data-validate = "Nama harus diisi">
+					<input class="input100" type="text" name="nama" placeholder="Nama" value="<?= set_value('nama'); ?>">
 					<span class="focus-input100"></span>
 					<span class="symbol-input100">
 						<span class="lnr lnr-user"></span>
 					</span>
+					
 				</div>
+				<?= form_error('nama','<small class="text-danger">','</small>'); ?>
 
-				<div class="wrap-input100 validate-input m-b-16" data-validate = "Valid email is required: ex@abc.xyz">
-					<input class="input100" type="text" name="email" placeholder="Email" >
+				<div class="wrap-input100 validate-input m-b-16" data-validate = "Contoh email: ex@abc.xyz">
+					<input class="input100" type="text" name="email" placeholder="Email" value="<?= set_value('email'); ?>">
 
 					<span class="focus-input100"></span>
 					<span class="symbol-input100">
 						<span class="lnr lnr-envelope"></span>
 					</span>
+					
 				</div>
+				<?= form_error('email','<small class="text-danger">','</small>'); ?>
 
-
-				<div class="wrap-input100 validate-input m-b-16">
-					<input class="input100" type="text" name="text" placeholder="No. HP">
+				<div class="wrap-input100 validate-input m-b-16" data-validate = "No. Hp harus diisi">
+					<input class="input100" type="text" name="telepon" placeholder="No. HP" value="<?= set_value('telepon'); ?>">
 					<span class="focus-input100"></span>
 					<span class="symbol-input100">
 						<span class="lnr lnr-phone-handset"></span>
 					</span>
+					
 				</div>
+				<?= form_error('telepon','<small class="text-danger">','</small>'); ?>
 
-				<div class="wrap-input100 validate-input m-b-16">
-					<input class="input100" type="text" name="text" placeholder="Alamat" id="alamat">
-					<input type="hidden" id="latitude_input">
-					<input type="hidden" id="longitude_input">
+
+				<div class="wrap-input100 validate-input m-b-16" data-validate = "Alamat harus diisi">
+					<input class="input100" type="text" name="alamat" placeholder="Alamat" id="alamat" value="<?= set_value('alamat'); ?>"> 
+					<input type="hidden" name="lat" id="latitude_input">
+					<input type="hidden" name="long" id="longitude_input">
 					<span class="focus-input100"></span>
 					<span class="symbol-input100">
 						<span class="lnr lnr-map-marker"></span>
 					</span>
+					
 				</div>
+				<?= form_error('alamat','<small class="text-danger">','</small>'); ?>
 
-				<div class="wrap-input100 validate-input m-b-16">
+				<div class="wrap-input100 validate-input m-b-16" data-validate = "Kota harus diisi">
 					<!-- <input class="input100" type="text" name="text" placeholder="Alamat" > -->
-					<select name="" id="" class="input100">
-						<option value="" class="input100">Jakarta Pusat</option>
-						<option value="" class="input100">Jakarta Timur</option>
-						<option value="" class="input100">Jakarta Utara</option>
-						<option value="" class="input100">Jakarta Selatan</option>
-						<option value="" class="input100">Jakarta Barat</option>
+					<select name="kota" id="" class="input100">
+						<option value="" class="input100">Pilih Kota</option>
+						<option value="Jakarta Pusat" class="input100">Jakarta Pusat</option>
+						<option value="Jakarta Timur" class="input100">Jakarta Timur</option>
+						<option value="Jakarta Utara" class="input100">Jakarta Utara</option>
+						<option value="Jakarta Selatan" class="input100">Jakarta Selatan</option>
+						<option value="Jakarta Barat" class="input100">Jakarta Barat</option>
 					</select>
 					<span class="focus-input100"></span>
 					<span class="symbol-input100">
 						<span class="lnr lnr-apartment"></span>
 					</span>
+					
 				</div>
+				<?= form_error('kota','<small class="text-danger">','</small>'); ?>
 
 		
 	
@@ -94,16 +118,18 @@
 					<p><b>Longitude : </b> <span id="longitude_view"></span> </p>
 				</div>  -->
 
-				<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
-					<input class="input100" type="password" name="pass" placeholder="Password">
+				<div class="wrap-input100 validate-input m-b-16" data-validate = "Password harus diisi">
+					<input class="input100" type="password" name="password" placeholder="Password" >
 					<span class="focus-input100"></span>
 					<span class="symbol-input100">
 						<span class="lnr lnr-lock"></span>
 					</span>
+					
 				</div>
+				<?= form_error('password','<small class="text-danger">','</small>'); ?>
 
-				<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
-					<input class="input100" type="password" name="pass" placeholder="Konfirmasi Password">
+				<div class="wrap-input100 validate-input m-b-16" data-validate = "Konfirmasi Password Harus diisi">
+					<input class="input100" type="password" name="konfirmasipassword" placeholder="Konfirmasi Password">
 					<span class="focus-input100"></span>
 					<span class="symbol-input100">
 						<span class="lnr lnr-lock"></span>
@@ -112,7 +138,7 @@
 
 				
 				<div class="container-login100-form-btn p-t-25">
-					<button class="login100-form-btn">
+					<button class="login100-form-btn" type="submit">
 						Register
 					</button>
 				</div>
@@ -137,6 +163,5 @@
 	</div>
 </div>
 
-	
 
 	
