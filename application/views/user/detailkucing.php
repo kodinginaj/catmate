@@ -49,6 +49,11 @@
                                                 <td>:</td>
                                                 <td><a href="">Instagram</a></td>
                                             </tr>
+                                            <tr>
+                                                <td>Pemilik</td>
+                                                <td>:</td>
+                                                <td>Alya</td>
+                                            </tr>
                                         </table>
                                     
                         
@@ -77,7 +82,7 @@
                         <table class="w-100">
                             <tbody>
                                 <tr>
-                                    <th class="bg-pink">Kucing Lainnya</th>
+                                    <th class="bar-kucinglain txt-pink">Kucing Lainnya</th>
                                 </tr>
                     
                                 <tr>
