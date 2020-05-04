@@ -11,10 +11,8 @@
                     <div class="card pricing popular">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-lg-5">
-                                    <div class="bungkus-img-detail">
-                                    <img src="">
-                                    </div>
+                                <div class="col-lg-5" style="display: flex;">
+                                    <img src="<?= base_url('assets/images/cat1.svg'); ?>" class="w-100">
                                 </div>
                                 <div class="col-lg-7" style="display: flex; flex-direction: column;">
                                     <div class="w-100 h-100">
@@ -24,7 +22,7 @@
                                        </div>
                                        <div class="form-group">
                                             <label for="nama_kucings">Jenis / Ras Kucing:</label>
-                                            <select class="form-control select2">
+                                            <select class="form-control select2 w-100">
                                                 <option>Pilih Ras</option>
                                                 <option>Persia Bagong</option>
                                             </select>
@@ -60,10 +58,10 @@
                                       <div class="form-group">
                                         <label>Foto Kucing:</label>
                                         <div class="file-field">
-                                          <div class="btn btn-catmate float-left m-0 btn-upload-poster">
-                                            <span onclick="chooseFile();" style="cursor: pointer">Choose file</span>
+                                          <div class="btn btn-catmate float-left" onclick="chooseFile();" style="cursor: pointer"><span>Choose file</span></div>
+                                            
                                             <input type="file" id="fileInput" name="photo" style="display: none;" class="btn-upload-profile"/>
-                                          </div>
+                                          
                                           <div class="file-path-wrapper">
                                             <span class="">&nbsp; No file uploaded</span>
                                           </div>

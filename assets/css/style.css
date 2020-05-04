@@ -83,9 +83,20 @@ p {
     color: #959094;
 }
 
+.shadow {
+  box-shadow: 0px 12px 59px 0px rgba(36, 7, 31, 0.11);
+}
+
+.select2 {
+  width: 100%;
+}
+
 /* AWAL RECENT POST */
 
-
+    .bar-kucinglain {
+      border-top: 3px solid #ff9597; 
+      border-bottom: 2px dashed #ccc;
+    }
     .recent-post {
       border: 1px solid #eee;
       margin-top: 30px;
@@ -543,6 +554,8 @@ p.lead {
 }
 @media (min-width: 992px) {
 
+
+
     .bungkus-img-detail {
         max-width: 270px;
         height: auto;
@@ -555,7 +568,10 @@ p.lead {
     }
 
     /* AWAL RECENT POST */
-
+    .bar-kucinglain {
+      border-top: 3px solid #ff9597; 
+      border-bottom: 2px dashed #ccc;
+    }
 
     .recent-post {
       border: 1px solid #eee;
@@ -564,7 +580,7 @@ p.lead {
 
     .recent-post th {
       height: 42px;
-      padding-left: 10px;
+      padding-left: 20px;
       font-size: 18px;
       font-weight: 400;
       text-align: left;

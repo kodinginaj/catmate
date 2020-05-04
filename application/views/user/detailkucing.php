@@ -49,6 +49,11 @@
                                                 <td>:</td>
                                                 <td><a href="">Instagram</a></td>
                                             </tr>
+                                            <tr>
+                                                <td>Pemilik</td>
+                                                <td>:</td>
+                                                <td>Alya</td>
+                                            </tr>
                                         </table>
                                     
                         
@@ -73,11 +78,11 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="recent-post">
+                    <div class="recent-post shadow">
                         <table class="w-100">
                             <tbody>
                                 <tr>
-                                    <th class="bg-pink">Kucing Lainnya</th>
+                                    <th class="bar-kucinglain txt-pink">Kucing Lainnya</th>
                                 </tr>
                     
                                 <tr>
