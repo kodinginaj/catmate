@@ -33,10 +33,38 @@ class User extends CI_Controller {
 		$kucing = $this->KucingModel->getMyCats($this->session->userdata('id'));
 		$datakucing['kucing'] = $kucing;
 
+		$ras = $this->KucingModel->getRas();
+		$datakucing['ras'] = $ras;
+
+		$count = $this->KucingModel->countCats($this->session->userdata('id'));
+		$datakucing['count'] = $count;
+
 		$this->load->view('template/user/header_user', $data);
 		$this->load->view('template/user/menu_user');
 		$this->load->view('user/mycats',$datakucing);
 		$this->load->view('template/user/footer_user');
+	}
+
+
+	public function getKategori()
+	{
+		$this->db->select("*");
+		$this->db->from("kucing");
+		$this->db->where("ras_id", $this->input->post('id'));
+		$query = $this->db->get();
+		$result = $query->result_array();
+
+		echo json_encode($result);
+	}
+
+		public function getKategoriAll()
+	{
+		$this->db->select("*");
+		$this->db->from("kucing");
+		$query = $this->db->get();
+		$result = $query->result_array();
+
+		echo json_encode($result);
 	}
 
 
@@ -60,7 +88,7 @@ class User extends CI_Controller {
 				$config = array();
 				$config['allowed_types'] = 'jpg|png|pdf|doc';
 				$config['max_size'] = '2048';
-				$config['upload_path'] = './assets/img_kucing';
+				$config['upload_path'] = '.assets/img_kucing';
 
 				$this->load->library('upload', $config, 'fotokucing');
 				$this->fotokucing->initialize($config);
