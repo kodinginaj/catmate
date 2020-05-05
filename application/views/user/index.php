@@ -30,8 +30,8 @@
 
             </div>
 
-            <div class="row">
-                <div class="col-lg-12 text-center">
+            
+              <div class="col-lg-12 text-center">
                     <!-- Pagination   -->
                 <nav aria-label="Page navigation example">
                   <ul class="pagination justify-content-center">
@@ -57,7 +57,7 @@
                 </nav>
             <!-- Akhir Pagination -->
                 </div>
-            </div>
+         
 
         </div>
 
