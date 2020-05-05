@@ -19,8 +19,6 @@ class UserModel extends CI_Model
         return $data;
     }
 
-
-
     function tambahKucing($data){
         $this->db->insert('kucing', $data);
         if ($this->db->affected_rows()>0) {
