@@ -14,9 +14,7 @@ class User extends CI_Controller {
 	{
 		$data['title'] = 'Catmate | Aplikasi pencarian jodoh untuk kucing';
 
-		$this->db->select("*");
-		$this->db->from("kucing");
-		$data['kucing'] = $this->db->get()->result_array();
+		$data['kucing'] = $this->KucingModel->getAllCats();
 
 		$this->load->view('template/user/header_user', $data);
 		$this->load->view('template/user/menu_user');
@@ -121,12 +119,18 @@ class User extends CI_Controller {
 
 	}
 
-	public  function detailkucing()
+	public  function detailkucing($id)
 	{
 		$data['title'] = 'Catmate | Aplikasi pencarian jodoh untuk kucing';
+
+		$data['kucing'] = $this->KucingModel->getDetailCats($id);
+		$data['kucinglainnya'] = $this->KucingModel->getKucingLainnya();
+
+		// var_dump($data);
+
 		$this->load->view('template/user/header_user', $data);
 		$this->load->view('template/user/menu_user');
-		$this->load->view('user/detailkucing');
+		$this->load->view('user/detailkucing', $data);
 		$this->load->view('template/user/footer_user');
 	}
 

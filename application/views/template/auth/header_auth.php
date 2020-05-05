@@ -23,6 +23,9 @@
 <!--===============================================================================================-->
 
 <!--===============================================================================================-->	
+  <!-- SELECT 2 -->
+  <link href="<?= base_url('assets/vendor/select2/css/select2.css'); ?>" rel="stylesheet" />
+  <!-- AKHIR SELECT 2 -->
 	<script src="<?= base_url('assets/login/vendor/jquery/jquery-3.2.1.min.js'); ?>"></script>
 
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBU4b7TsCaBmp5mg4VTqVStB0h19XxxeTY&libraries=places"></script>
