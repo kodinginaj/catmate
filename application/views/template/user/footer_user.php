@@ -18,6 +18,9 @@
     <script src="<?= base_url('assets/vendor/select2/js/select2.js'); ?>"></script>
     <!-- AKHIR SELECT 2 -->
 
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKh7s8XWoZK4GtxgmYLkfSqrSCf4CQpno&libraries=places&callback=initMap">
+    </script>
+
     <!-- Custom JS -->
     <script src="<?= base_url('assets/js/script.js'); ?>"></script>
     <script>
