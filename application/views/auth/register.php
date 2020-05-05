@@ -26,6 +26,8 @@
 	// });
 
 	$(document).ready(function(){
+		// $('.select2').select2();
+
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function(position){
 				$('#latitude_input').val(position.coords.latitude);
@@ -95,7 +97,7 @@
 
 				<div class="wrap-input100 validate-input m-b-16" data-validate = "Kota harus diisi">
 					<!-- <input class="input100" type="text" name="text" placeholder="Alamat" > -->
-					<select name="kota" id="" class="input100">
+					<select name="kota" id="" class="input100 select2">
 						<option value="" class="input100">Pilih Kota</option>
 						<option value="Jakarta Pusat" class="input100">Jakarta Pusat</option>
 						<option value="Jakarta Timur" class="input100">Jakarta Timur</option>
