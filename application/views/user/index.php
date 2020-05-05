@@ -17,7 +17,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-catmate btn-lg btn-block mt-4">Detail Kucing</a>
+                            <a href="<?= base_url('user/detailKucing/'.$row['id']);  ?>" class="btn btn-catmate btn-lg btn-block mt-4">Detail Kucing</a>
                         </div>
                     </div>
                 </div>
