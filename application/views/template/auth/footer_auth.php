@@ -7,5 +7,9 @@
 <!--===============================================================================================-->
 	<script src="<?= base_url('assets/login/js/main.js'); ?>"></script>
 
+	    <!-- SELECT 2 -->
+    <script src="<?= base_url('assets/vendor/select2/js/select2.js'); ?>"></script>
+    <!-- AKHIR SELECT 2 -->
+
 </body>
 </html>
