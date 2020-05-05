@@ -13,11 +13,15 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 mb-4">
-                    <button type="button" class="btn btn-secondary-category btn-sm">All <span class="badge badge-primary">3</span></button>
-                    <button type="button" class="btn btn-secondary-category-active btn-sm">Persia Ambon <span class="badge badge-primary-active">3</span></button>
+                    <button type="button" class="btn btn-secondary-category-active btn-sm all kategoriAll">All <span class="badge badge-primary"><?= $count ?></span></button>
+
+                    <?php foreach($ras as $row2) : ?>
+                      <button type="button" data-id="<?= $row2['id'] ?>" class="btn btn-secondary-category btn-sm kategori"><?= $row2['nama'] ?>&nbsp; <span class="badge badge-primary-active"><?= $row2['total'] ?></span></button>
+                    <?php endforeach; ?>
+
                 </div>
             </div>
-            <div class="row">
+            <div class="row hehe">
                 <div class="col-lg-3 mb-4">
                     <div class="card pricing popular">
                         <div class="card-body">
@@ -34,11 +38,10 @@
                         </div>
                     </div>
                 </div>
-                
-                <?php 
-                // var_dump($kucing);
-                foreach ($kucing as $row ) : ?>
-                <div class="col-lg-3 mb-4">
+
+
+                <?php foreach ($kucing as $row ) : ?>
+                <div class="col-lg-3 mb-4 list">
                     <div class="card pricing popular">
                         <div class="card-body">
                             <div class="bungkus-card">
@@ -62,14 +65,12 @@
                     </div>
                 </div>
                 <?php endforeach; ?>
-
-              
                
             </div>
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <!-- Pagination   -->
-                <nav aria-label="Page navigation example">
+                <!-- <nav aria-label="Page navigation example">
                   <ul class="pagination justify-content-center">
                     <li class="page-item">
                       <a class="page-link" href="" aria-label="Previous">
@@ -90,7 +91,7 @@
                       </a>
                     </li>
                   </ul>
-                </nav>
+                </nav> -->
             <!-- Akhir Pagination -->
                 </div>
             </div>
@@ -99,7 +100,8 @@
     </div>
     <!-- // end .section -->
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="<?= base_url('assets/js/lihatKucing.js') ?>"></script>
 
 
-
-   
+</script>
