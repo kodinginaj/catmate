@@ -23,7 +23,7 @@
                                         <div class="w-100 h-100">
                                             <div class="form-group">
                                                     <label for="nama_kucings">Nama Kucing:</label>
-                                                    <input type="text" id="nama_kucing" class="form-control" name="nama">
+                                                    <input type="text" id="nama_kucing" class="form-control" name="nama" value="<?= set_value('nama'); ?>">
                                                     <input type="hidden" id="nama_kucing" class="form-control" name="user_id" value="<?= $this->session->userdata('id') ?>">
                                                     <?= form_error('nama','<small class="text-danger">','</small>'); ?>
                                             </div>
@@ -39,19 +39,6 @@
                                                     <?= form_error('ras_id','<small class="text-danger">','</small>'); ?>
                                             </div>
                                             
-<!--                                             <div class="form-group">
-                                                <label>Jenis Kelamin:</label>
-                                                    <div class="">
-                                                    <input type="radio" id="jantan" name="jk" class="" value="Jantan">
-                                                    <label class="" for="jantan" style="color: #333;">Jantan</label>
-                                                    </div>
-
-                                                    <div class="">
-                                                    <input type="radio" id="betina" name="jk" class="" value="Betina"> 
-                                                    <label class="" for="betina" style="color: #333;">Betina</label>
-                                                    </div>
-                                                    <?= form_error('jk','<small class="text-danger">','</small>'); ?>
-                                            </div> -->
                                           <div class="form-group">
                                             <label>Jenis Kelamin:</label>
 
@@ -70,20 +57,20 @@
 
                                             <div class="form-group">
                                                     <label for="nama_kucings">Tanggal Lahir:</label>
-                                                    <input type="date" name="tanggal_lahir" class="form-control">
+                                                    <input type="date" name="tanggal_lahir" class="form-control" value="<?= set_value('tanggal_lahir'); ?>">
                                                     <?= form_error('tanggal_lahir','<small class="text-danger">','</small>'); ?>
                                             </div>
 
 
                                             <div class="form-group">
                                                     <label for="nama_kucings">Bio:</label>
-                                                    <textarea class="form-control" rows="3" name="biodata"></textarea>
+                                                    <textarea class="form-control" rows="3" name="biodata"><?= set_value('biodata'); ?></textarea>
                                                     <?= form_error('biodata','<small class="text-danger">','</small>'); ?>
                                             </div>
 
                                             <div class="form-group">
                                                     <label for="nama_kucings">Social Media:</label>
-                                                    <input type="text" class="form-control" name="sosial_media" placeholder="(cth: https://insagram.com/catcute)">
+                                                    <input type="text" class="form-control" name="sosial_media" placeholder="(cth: https://insagram.com/catcute)" value="<?= set_value('sosial_media'); ?>">
                                                     <?= form_error('sosial_media','<small class="text-danger">','</small>'); ?>
                                             </div>
 

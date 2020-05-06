@@ -27,4 +27,22 @@ class UserModel extends CI_Model
             return false;
         }
     }
+
+    function countUser(){
+        $this->db->select('id'); 
+        $this->db->from('user');
+        $user = $this->db->get()->num_rows();
+        return $user;
+    }
+
+    public function getUserTerbaru(){
+        $this->db->select('*'); 
+        $this->db->from('user');
+        $this->db->order_by('id','desc');
+        $this->db->limit('5','0');
+        $user = $this->db->get();
+        $data = $user->result_array();
+        return $data;
+    }
+
 }

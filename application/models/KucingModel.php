@@ -66,4 +66,29 @@ class KucingModel extends CI_Model
         $data = $kucing->result_array();
         return $data;
     }
+
+    public function getKucingTerbaru(){
+        $this->db->select('*'); 
+        $this->db->from('kucing ');
+        $this->db->order_by('id','desc');
+        $this->db->limit('5','0');
+        $kucing = $this->db->get();
+        $data = $kucing->result_array();
+
+        for ($i=0; $i < sizeOf($data) ; $i++) { 
+            $this->db->select('*'); 
+            $this->db->from('ras a ');
+            $this->db->where('a.id', $data[$i]['ras_id']);
+            $ras = $this->db->get()->row_array();
+            $data[$i]['ras'] = $ras;
+        }
+        return $data;
+    }
+
+    function countKucing(){
+        $this->db->select('id'); 
+        $this->db->from('kucing');
+        $user = $this->db->get()->num_rows();
+        return $user;
+    }
 }

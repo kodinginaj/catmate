@@ -20,6 +20,7 @@
 
     <!-- ADMIN CSS-->
     <link href="<?= base_url('assets/vendor/sbadmin/css/admin.css'); ?>" rel="stylesheet">
+    <script src="<?= base_url('assets/vendor/sbadmin/jquery/jquery.min.js'); ?>"></script>
 
 
 
