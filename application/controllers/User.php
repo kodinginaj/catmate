@@ -24,6 +24,15 @@ class User extends CI_Controller {
 		$this->load->view('template/user/footer_user');
 	}
 
+	public function profile(){
+		$data['title'] = 'Catmate | Aplikasi pencarian jodoh untuk kucing';
+
+		$this->load->view('template/user/header_user', $data);
+		$this->load->view('template/user/menu_user');
+		$this->load->view('user/profile', $data);
+		$this->load->view('template/user/footer_user');
+	}
+
 	public function mycats()
 	{
 		if ($this->session->userdata('role') == "admin" || $this->session->userdata('role') == "") {
