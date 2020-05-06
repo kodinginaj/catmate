@@ -12,7 +12,7 @@
                                 
                                 
                                 <?php if($this->session->userdata('role')=="user"): ?>
-                                    <li class="nav-item"> <a class="nav-link" id="menu-profile" href="">PROFILE</a> </li>
+                                    <li class="nav-item"> <a class="nav-link" id="menu-profile" href="<?= base_url('user/profile'); ?>">PROFILE</a> </li>
                                     <li class="nav-item"> <a class="nav-link" id="menu-mycats" href="<?= base_url('user/mycats'); ?>">MY CATS</a> </li>
                                     <li class="nav-item"> <a class="nav-link" href="<?= base_url('auth/logout'); ?>">LOGOUT</a> </li>
                                 <?php elseif($this->session->userdata('role')=="admin"): ?>

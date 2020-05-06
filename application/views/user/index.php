@@ -1,7 +1,86 @@
 <div class="section light-bg" id="features">
 
         <div class="container">
-            <div class="row">
+          <div class="row">
+                <div class="col-lg-3">
+                    <div class="card pricing popular">
+                        <div class="card-category">Ras / Jenis Kucing</div>
+                      
+                            <div class="form-group m-0 isi-category">
+                                <label class="bungkus-check m-0"><span class="txt-dark">Persia</span>
+                                  <input type="checkbox" checked="checked">
+                                  <span class="checkmark"></span>
+                                </label>
+                            </div> 
+                            <div class="form-group m-0 isi-category">
+                                <label class="bungkus-check m-0"><span class="txt-dark">Anggora</span>
+                                  <input type="checkbox">
+                                  <span class="checkmark"></span>
+                                </label>
+                            </div>   
+                            <div class="form-group m-0 isi-category">
+                                <label class="bungkus-check m-0"><span class="txt-dark">Himalaya</span>
+                                  <input type="checkbox">
+                                  <span class="checkmark"></span>
+                                </label>
+                            </div>                
+                       
+                        <div class="card-category">Jenis Kelamin</div>
+                            <div class="form-group m-0 isi-category">
+                                <label class="bungkus-check m-0"><span class="txt-dark">Jantan</span>
+                                  <input type="radio" name="jtn">
+                                  <span class="checkmark"></span>
+                                </label>
+                            </div> 
+                            <div class="form-group m-0 isi-category">
+                                <label class="bungkus-check m-0"><span class="txt-dark">Betina</span>
+                                  <input type="radio" name="jtn">
+                                  <span class="checkmark"></span>
+                                </label>
+                            </div>  
+                        <div class="card-category">Lokasi</div>
+                            <div class="form-group m-0 isi-category">
+                                <label class="bungkus-check m-0"><span class="txt-dark">DKI Jakarta</span>
+                                  <input type="checkbox" checked="checked">
+                                  <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="form-group m-0 isi-category-sub">
+                                <label class="bungkus-check m-0"><span class="txt-dark">Jakarta Selatan</span>
+                                  <input type="checkbox" checked="checked">
+                                  <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="form-group m-0 isi-category-sub">
+                                <label class="bungkus-check m-0"><span class="txt-dark">Jakarta Selatan</span>
+                                  <input type="checkbox">
+                                  <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="form-group m-0 isi-category-sub">
+                                <label class="bungkus-check m-0"><span class="txt-dark">Jakarta Pusat</span>
+                                  <input type="checkbox">
+                                  <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="form-group m-0 isi-category-sub">
+                                <label class="bungkus-check m-0"><span class="txt-dark">Jakarta Timur</span>
+                                  <input type="checkbox">
+                                  <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="form-group m-0 isi-category-sub">
+                                <label class="bungkus-check m-0"><span class="txt-dark">Jakarta Utara</span>
+                                  <input type="checkbox">
+                                  <span class="checkmark"></span>
+                                </label>
+                            </div>
+
+                        
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                     <div class="row">
 
               <?php
               foreach($kucing as $row): ?>
@@ -27,6 +106,9 @@
                 ?>
 
                 </div>
+              </div>
+            </div>
+            
 
             </div>
 
