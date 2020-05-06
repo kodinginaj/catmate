@@ -26,6 +26,10 @@ class User extends CI_Controller {
 
 	public function mycats()
 	{
+		if ($this->session->userdata('role') == "admin" || $this->session->userdata('role') == "") {
+            redirect('user');
+        }
+
 		$data['title'] = 'Catmate | Aplikasi pencarian jodoh untuk kucing';
 
 		$kucing = $this->KucingModel->getMyCats($this->session->userdata('id'));
@@ -73,7 +77,10 @@ class User extends CI_Controller {
 			$this->form_validation->set_rules('tanggal_lahir', 'Tanggal lahir', 'required|trim');
 			$this->form_validation->set_rules('biodata', 'Alamat', 'required|trim');
 			$this->form_validation->set_rules('sosial_media', 'Sosial media', 'required|trim');
-			$this->form_validation->set_rules('foto', 'Foto', 'required|trim');
+			
+			if (empty($_FILES['foto']['name'])) {
+				$this->form_validation->set_rules('foto', 'Foto', 'required|trim');
+			}
 
 			$this->form_validation->set_message('required', '%s harus diisi');
 
@@ -83,35 +90,52 @@ class User extends CI_Controller {
 
 				$foto = $_FILES['foto']['name'];
 
-				$config = array();
-				$config['allowed_types'] = 'jpg|png|pdf|doc';
-				$config['max_size'] = '2048';
-				$config['upload_path'] = '.assets/img_kucing';
+				$belah = explode('.',$foto);
+				$ekstensi = strtolower(end($belah));
+				
+				$namaBaru = $this->session->userdata('id');
+				$namaBaru .= $belah[0];
+				$namaBaruDB .= $namaBaru.".".$ekstensi;
+		
+				$config['file_name'] = $namaBaru;
+				$config['allowed_types'] = 'gif|jpg|png';
+				$config['max_size']      = '2048';
+				$config['upload_path'] = './assets/img_kucing/';
 
-				$this->load->library('upload', $config, 'fotokucing');
-				$this->fotokucing->initialize($config);
-				$this->fotokucing->do_upload('foto');
-
-				$data = [
-					"user_id" => $this->input->post("user_id"),
-					"ras_id" => $this->input->post("ras_id"),
-					"nama" => $this->input->post("nama"),
-					"jk" => $this->input->post("jk"),
-					"tanggal_lahir" => $this->input->post("tanggal_lahir"),
-					"foto" => '/assets/img_kucing/'.$foto,
-					"biodata" => $this->input->post("biodata"),
-					"sosial_media" => $this->input->post("sosial_media"),
-				];
-
-				$result = $this->UserModel->tambahKucing($data);
-
-				if ($result) {
-					$this->session->set_flashdata('message', 'Kucing berhasil ditambah');
-					redirect('user/mycats');
-				}else{
-					$this->session->set_flashdata('message', 'Ada kesalahan');
+				$this->load->library('upload', $config);
+				if ( ! $this->upload->do_upload('foto'))
+				{
+					$error = array('error' => $this->upload->display_errors());
+					$this->session->set_flashdata('message',$error['error']);
+					// $this->session->set_flashdata('message', 'Foto tidak bisa berhasil disimpan');
 					redirect('user/tambahKucing');
+					// $this->load->view('upload_form', $error);
 				}
+				else{
+					
+					$data = [
+						"user_id" => $this->input->post("user_id"),
+						"ras_id" => $this->input->post("ras_id"),
+						"nama" => $this->input->post("nama"),
+						"jk" => $this->input->post("jk"),
+						"tanggal_lahir" => $this->input->post("tanggal_lahir"),
+						"foto" => '/assets/img_kucing/'.$namaBaruDB,
+						"biodata" => $this->input->post("biodata"),
+						"sosial_media" => $this->input->post("sosial_media"),
+					];
+
+					$result = $this->UserModel->tambahKucing($data);
+
+					if ($result) {
+						$this->session->set_flashdata('message', 'Kucing berhasil ditambah');
+						redirect('user/mycats');
+					}else{
+						$this->session->set_flashdata('message', 'Ada kesalahan');
+						redirect('user/tambahKucing');
+					}
+				}
+
+				
 			}
 
 

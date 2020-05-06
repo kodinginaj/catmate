@@ -10,13 +10,13 @@
           <div class="row">
 
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl-4 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jumlah User</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">12</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $jumlahUser ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -27,13 +27,13 @@
             </div>
 
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl-4 col-md-6 mb-4">
               <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Jumlah Kucing</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">50</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $jumlahKucing ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-cat fa-2x text-gray-300"></i>
@@ -44,7 +44,7 @@
             </div>
 
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl-4 col-md-6 mb-4">
               <div class="card border-left-info shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
@@ -52,7 +52,7 @@
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Jumlah Ras</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">150</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= $jumlahRas ?></div>
                         </div>
                       </div>
                     </div>
@@ -65,7 +65,7 @@
             </div>
 
             <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
+            <!-- <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
@@ -79,58 +79,62 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <!-- Content Row -->
 
           <div class="row">
 
-           <div class="col-lg-6">
-           		<div class="card shadow">
-           			<div class="card-header">
-           				<h6 class="m-0 font-weight-bold text-primary">User Terbaru</h6>
-           			</div>
-           			<div class="card-body">
-                  <div class="recent-post">
-                    <table class="w-100">
-                      <tbody>
-                          <tr>
-                            <td>
-                            <img src="http://localhost/sahabat_seger/assets/img/profile/ava_female.png">
-                            <h1>Debby Angraini</h1>
-                              <p><i class="fas fa-fw fa-users"></i> &nbsp;Bandung</p>
-                            </td>
-                          </tr>          
-                        </tbody>
-                    </table>
-                  </div>  
-                </div>
-           		</div>
-           </div>
+              <div class="col-lg-6">
+                  <div class="card shadow">
+                    <div class="card-header">
+                      <h6 class="m-0 font-weight-bold text-primary">User Terbaru</h6>
+                    </div>
+                    <div class="card-body">
+                      <div class="recent-post">
+                        <table class="w-100">
+                          <tbody>
+                            <?php foreach($userTerbaru as $row): ?>
+                            <tr>
+                              <td>
+                                <img src="">
+                                <h1><?= $row['nama'] ?></h1>
+                                  <p><i class="fas fa-fw fa-users"></i> &nbsp;<?= $row['kota'] ?></p>
+                              </td>
+                            </tr>       
+                            <?php endforeach; ?>           
+                          </tbody>
+                        </table>
+                      </div>  
+                    </div>
+                  </div>
+              </div>
 
-            <div class="col-lg-6">
-           		<div class="card shadow">
-           			<div class="card-header">
-           				<h6 class="m-0 font-weight-bold text-primary">Kucing Terbaru</h6>
-           			</div>
-           			<div class="card-body">
-           				<div class="recent-post">
-                    <table class="w-100">
-                      <tbody>
-                          <tr>
-                            <td>
-                            <img src="http://localhost/sahabat_seger/assets/img/profile/ava_female.png">
-                            <h1>Johny</h1>
-                              <p><i class="fas fa-fw fa-paw"></i> &nbsp;Persia</p>
-                            </td>
-                          </tr>          
-                        </tbody>
-                    </table>
-                  </div> 
-           			</div>
-           		</div>
-           </div>
+              <div class="col-lg-6">
+                <div class="card shadow">
+                  <div class="card-header">
+                    <h6 class="m-0 font-weight-bold text-primary">Kucing Terbaru</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="recent-post">
+                      <table class="w-100">
+                        <tbody>
+                            <?php foreach($kucingTerbaru as $row): ?>
+                            <tr>
+                              <td>
+                              <img src="<?= base_url('').$row['foto'] ?>">
+                                <h1><?= $row['nama'] ?></h1>
+                                <p><i class="fas fa-fw fa-paw"></i> &nbsp;<?= $row['ras']['nama'] ?></p>
+                              </td>
+                            </tr>
+                            <?php endforeach; ?>          
+                          </tbody>
+                      </table>
+                    </div> 
+                  </div>
+                </div>
+            </div>
           
 
          
