@@ -70,8 +70,8 @@ $('.kategori').click(function () {
 
 $('.kategoriAll').click(function () {
 
-  var base_url = "http://localhost/catmate/index.php/";
-  var base_url2 = "http://localhost/catmate/";
+  var base_url = url + "index.php/";
+  var base_url2 = url;
 
   $(".hehe").html("");
   $('.all').removeClass('btn-secondary-category-active');
