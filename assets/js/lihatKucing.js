@@ -69,7 +69,7 @@ $('.kategori').click(function () {
 })
 
 $('.kategoriAll').click(function () {
-
+  var url = $('meta[name=url]').attr("content");
   var base_url = url + "index.php/";
   var base_url2 = url;
 
