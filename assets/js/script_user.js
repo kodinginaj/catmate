@@ -1,6 +1,7 @@
 $(document).ready( function () {
 	// SELECT 2
     $('.select2').select2();
+
     //AKHIR SELECT 2
 
     // UPLOAD FOTO KUCING PATH
