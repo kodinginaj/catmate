@@ -50,7 +50,7 @@ class KucingModel extends CI_Model
 
         $this->db->select('*'); 
         $this->db->from('user a ');
-        $this->db->where('a.id', $data['id']);
+        $this->db->where('a.id', $data['user_id']);
         $user = $this->db->get()->row_array();
         $data['user'] = $user;
         $data['ras'] = $ras;
