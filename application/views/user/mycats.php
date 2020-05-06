@@ -54,10 +54,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-6 pr-2">
-                                    <a href="#" class="btn btn-catmate btn-lg btn-block mt-4">Detail</a>
+                                    <a href="<?= base_url('user/detailKucing/?id=').$row['id'] ?>" class="btn btn-catmate btn-lg btn-block mt-4">Detail</a>
                                 </div>
                                 <div class="col-lg-6 pl-2">
-                                    <a href="#" class="btn btn-catmate-secondary btn-block mt-4">Edit</a>
+                                    <a href="<?= base_url('user/ubahKucing/?id=').$row['id'] ?>" class="btn btn-catmate-secondary btn-block mt-4">Edit</a>
                                 </div>
                             </div>
                             

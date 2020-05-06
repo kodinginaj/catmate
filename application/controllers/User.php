@@ -143,10 +143,70 @@ class User extends CI_Controller {
 
 	}
 
-	public  function detailkucing($id)
+	public function ubahKucingProses(){
+			$this->form_validation->set_rules('nama', 'Nama', 'required|trim');
+			$this->form_validation->set_rules('ras_id', 'Ras', 'required|trim');
+			$this->form_validation->set_rules('jk', 'Jenis kelamin', 'required|trim');
+			$this->form_validation->set_rules('tanggal_lahir', 'Tanggal lahir', 'required|trim');
+			$this->form_validation->set_rules('biodata', 'Alamat', 'required|trim');
+			$this->form_validation->set_rules('sosial_media', 'Sosial media', 'required|trim');
+
+			$this->form_validation->set_message('required', '%s harus diisi');
+
+			if ($this->form_validation->run() == false) {
+				$this->ubahKucing();
+        	} else {
+
+        		if (empty($_FILES['foto']['name'])){
+					$foto = $this->input->post("old_foto");
+        		}else{
+
+        		unlink(FCPATH . $this->input->post("old_foto"));
+				$fotoo = $_FILES['foto']['name'];
+				$foto = "assets/img_kucing/".$fotoo;
+
+				$config = array();
+				$config['allowed_types'] = 'jpg|png|pdf|doc';
+				$config['max_size'] = '2048';
+				$config['upload_path'] = 'assets/img_kucing';
+
+				$this->load->library('upload', $config, 'fotokucing');
+				$this->fotokucing->initialize($config);
+				$this->fotokucing->do_upload('foto');
+				}
+
+				$data = [
+					"ras_id" => $this->input->post("ras_id"),
+					"nama" => $this->input->post("nama"),
+					"jk" => $this->input->post("jk"),
+					"tanggal_lahir" => $this->input->post("tanggal_lahir"),
+					"foto" => $foto,
+					"biodata" => $this->input->post("biodata"),
+					"sosial_media" => $this->input->post("sosial_media"),
+				];
+
+				$id = $this->input->post("id_kucing");
+				$result = $this->UserModel->ubahKucing($data,$id);
+
+				if ($result) {
+					$this->session->set_flashdata('message', 'Kucing berhasil diubah');
+					redirect('user/mycats');
+				}else{
+					$this->session->set_flashdata('message', 'Ada kesalahan');
+					redirect('user/ubahKucing');
+				}
+			}
+
+
+
+
+	}
+
+	public  function detailkucing()
 	{
 		$data['title'] = 'Catmate | Aplikasi pencarian jodoh untuk kucing';
 
+		$id = $this->input->get('id');
 		$data['kucing'] = $this->KucingModel->getDetailCats($id);
 		$data['kucinglainnya'] = $this->KucingModel->getKucingLainnya();
 
@@ -162,12 +222,31 @@ class User extends CI_Controller {
 	public function tambahkucing()
 	{
 		$data['title'] = 'Catmate | Aplikasi pencarian jodoh untuk kucing';
-		$dataras['ras'] = $this->RasModel->getRas();
+		$data['ras'] = $this->RasModel->getRas();
 
 
 		$this->load->view('template/user/header_user', $data);
 		$this->load->view('template/user/menu_user');
-		$this->load->view('user/tambahkucing', $dataras);
+		$this->load->view('user/tambahkucing', $data);
+		$this->load->view('template/user/footer_user');
+	}
+
+	public function ubahKucing()
+	{
+		$data['title'] = 'Catmate | Aplikasi pencarian jodoh untuk kucing';
+		$data['ras'] = $this->RasModel->getRas();
+
+		$id = $this->input->get("id");
+
+		$this->db->select("*");
+		$this->db->from("kucing");
+		$this->db->where('id',$id);
+		$data['kucing'] = $this->db->get()->row_array();
+
+
+		$this->load->view('template/user/header_user', $data);
+		$this->load->view('template/user/menu_user');
+		$this->load->view('user/ubahKucing', $data);
 		$this->load->view('template/user/footer_user');
 	}
 

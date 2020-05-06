@@ -28,6 +28,17 @@ class UserModel extends CI_Model
         }
     }
 
+
+    function ubahKucing($data,$id){
+        $this->db->where('id',$id);
+        $this->db->update('kucing', $data);
+        if ($this->db->affected_rows()>0) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     function countUser(){
         $this->db->select('id'); 
         $this->db->from('user');
@@ -44,5 +55,6 @@ class UserModel extends CI_Model
         $data = $user->result_array();
         return $data;
     }
+
 
 }
