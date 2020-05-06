@@ -83,7 +83,10 @@ p {
     color: #959094;
 }
 
-
+.navbar-brand img {
+  width: 105px;
+  height: auto;
+}
 
 /* AWAL CHECKBOX STYLE */
 .bungkus-check {
@@ -263,7 +266,7 @@ p {
     }
     .recent-post img {
       width: 205px;
-      height: 265px;
+      height: 210px;
       overflow: hidden;
       padding: 5px;
       border: 1px dashed #ccc;
@@ -739,7 +742,7 @@ p.lead {
     }
     .recent-post img {
       width: 120px;
-      height: 155px;
+      height: 130px;
       overflow: hidden;
       padding: 5px;
       border: 1px dashed #ccc;
