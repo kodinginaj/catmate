@@ -95,7 +95,7 @@ class User extends CI_Controller {
 				
 				$namaBaru = $this->session->userdata('id');
 				$namaBaru .= $belah[0];
-				$namaBaruDB .= $namaBaru.".".$ekstensi;
+				$namaBaruDB = $namaBaru.".".$ekstensi;
 		
 				$config['file_name'] = $namaBaru;
 				$config['allowed_types'] = 'gif|jpg|png';
