@@ -11,10 +11,12 @@
                                 <li class="nav-item"> <a class="nav-link" id="menu-home" href="<?= base_url('user'); ?>">HOME <span class="sr-only">(current)</span></a> </li>
                                 
                                 
-                                <?php if($this->session->userdata('role')): ?>
+                                <?php if($this->session->userdata('role')=="user"): ?>
                                     <li class="nav-item"> <a class="nav-link" id="menu-profile" href="">PROFILE</a> </li>
                                     <li class="nav-item"> <a class="nav-link" id="menu-mycats" href="<?= base_url('user/mycats'); ?>">MY CATS</a> </li>
                                     <li class="nav-item"> <a class="nav-link" href="<?= base_url('auth/logout'); ?>">LOGOUT</a> </li>
+                                <?php elseif($this->session->userdata('role')=="admin"): ?>
+                                    <li class="nav-item"> <a class="nav-link" href="<?= base_url('admin'); ?>">ADMIN</a> </li>
                                 <?php else: ?>
                                     <li class="nav-item"> <a class="nav-link" href="<?= base_url('auth'); ?>">MASUK</a> </li>
                                     <li class="nav-item"><a href="<?= base_url('auth/register'); ?>" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Daftar</a></li>
