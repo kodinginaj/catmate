@@ -27,10 +27,84 @@ class User extends CI_Controller {
 	public function profile(){
 		$data['title'] = 'Catmate | Aplikasi pencarian jodoh untuk kucing';
 
+		$data['profil'] = $this->UserModel->getProfilUser($this->session->userdata('id'));
+		
 		$this->load->view('template/user/header_user', $data);
 		$this->load->view('template/user/menu_user');
 		$this->load->view('user/profile', $data);
 		$this->load->view('template/user/footer_user');
+	}
+
+	public function ubahProfil(){
+		$this->form_validation->set_rules('nama', 'Nama', 'required|trim');
+		$this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+		$this->form_validation->set_rules('kota', 'Kota', 'required|trim');
+		$this->form_validation->set_rules('telepon', 'Telepon', 'required|trim');
+
+		$this->form_validation->set_message('required', '%s harus diisi');
+
+		if ($this->form_validation->run() == false) {
+				$this->profile();
+		} else {
+			$data = [
+				'nama' => $this->input->post('nama'),
+				'alamat' => $this->input->post('alamat'),
+				'kota' => $this->input->post('kota'),
+				'telepon' => $this->input->post('telepon')
+			];
+
+			$result = $this->UserModel->ubahUser($this->session->userdata('id'),$data);
+			if ($result) {
+				$this->session->set_flashdata('message','Berhasil mengubah profil');
+				redirect('user/profile');
+			}else{
+				$this->session->set_flashdata('message','Ada kesalahan');
+				redirect('user/profile');
+			}
+
+		}
+	}
+
+	public function ubahPassword(){
+		$this->form_validation->set_rules('passwordlama', 'Password lama', 'required|trim');
+		$this->form_validation->set_rules('passwordbaru', 'Password Konfirmasi', 'required|min_length[8]|trim|matches[passwordkonfirmasi]');
+		$this->form_validation->set_rules('passwordkonfirmasi', 'Password konfirmasi', 'required|min_length[8]|trim|matches[passwordbaru]');
+
+		$this->form_validation->set_message('required', '%s harus diisi');
+		$this->form_validation->set_message('matches', '%s tidak sama');
+		$this->form_validation->set_message('min_length', '%s minimal 8 karakter');
+
+		if ($this->form_validation->run() == false) {
+				$this->profile();
+		} else {
+
+			$user = $this->UserModel->getProfilUser($this->session->userdata('id'));
+			$check  = password_verify($this->input->post('passwordlama'),$user['password']);
+			$enkripsi = password_hash($this->input->post('passwordbaru'),PASSWORD_BCRYPT);
+
+
+			if ($check) {
+				$data = [
+					'password' => $enkripsi
+				];
+
+				$result = $this->UserModel->ubahUser($this->session->userdata('id'),$data);
+				if ($result) {
+					$this->session->set_flashdata('message','Berhasil mengubah password');
+					redirect('user/profile');
+				}else{
+					$this->session->set_flashdata('message','Ada kesalahan');
+					redirect('user/profile');
+				}
+			}else{
+				$this->session->set_flashdata('message','Password lama salah');
+				redirect('user/profile');
+			}
+
+			
+
+		}
+
 	}
 
 	public function mycats()
@@ -68,7 +142,7 @@ class User extends CI_Controller {
 		echo json_encode($result);
 	}
 
-		public function getKategoriAll()
+	public function getKategoriAll()
 	{
 		$this->db->select("*");
 		$this->db->from("kucing");
@@ -116,9 +190,7 @@ class User extends CI_Controller {
 				{
 					$error = array('error' => $this->upload->display_errors());
 					$this->session->set_flashdata('message',$error['error']);
-					// $this->session->set_flashdata('message', 'Foto tidak bisa berhasil disimpan');
 					redirect('user/tambahKucing');
-					// $this->load->view('upload_form', $error);
 				}
 				else{
 					
