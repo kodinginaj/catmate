@@ -119,7 +119,7 @@ class User extends CI_Controller {
 		$kucing = $this->KucingModel->getMyCats($this->session->userdata('id'));
 		$datakucing['kucing'] = $kucing;
 
-		$ras = $this->KucingModel->getRas();
+		$ras = $this->KucingModel->getRas($this->session->userdata('id'));
 		$datakucing['ras'] = $ras;
 
 		$count = $this->KucingModel->countCats($this->session->userdata('id'));
@@ -134,9 +134,11 @@ class User extends CI_Controller {
 
 	public function getKategori()
 	{
-		$this->db->select("*");
+		$this->db->select("kucing.*,user.id");
 		$this->db->from("kucing");
+		$this->db->join("user","kucing.user_id = user.id");
 		$this->db->where("ras_id", $this->input->post('id'));
+		$this->db->where("user.id", $this->input->post("user"));
 		$query = $this->db->get();
 		$result = $query->result_array();
 
@@ -145,8 +147,10 @@ class User extends CI_Controller {
 
 	public function getKategoriAll()
 	{
-		$this->db->select("*");
+		$this->db->select("kucing.*,user.id");
 		$this->db->from("kucing");
+		$this->db->join("user","kucing.user_id = user.id");
+		$this->db->where("user.id", $this->input->post("user"));
 		$query = $this->db->get();
 		$result = $query->result_array();
 

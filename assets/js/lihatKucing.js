@@ -2,7 +2,8 @@ $(".list2").hide();
 
 $('.kategori').click(function () {
 
-  var id = $(this).data('id');
+  var idd = $(this).data('id');
+  var userr = $(this).data('user');
 
   var url = $('meta[name=url]').attr("content");
   var base_url = url + "index.php/";
@@ -31,7 +32,10 @@ $('.kategori').click(function () {
 
   $.ajax({
     type: "POST",
-    data: "id=" + id,
+    data: {
+      id:  idd,
+      user: userr
+    },
     url: base_url + 'User/getKategori',
     success: function (result) {
       var objResult = JSON.parse(result);
@@ -76,13 +80,13 @@ $('.kategoriAll').click(function () {
   var base_url = url + "index.php/";
   var base_url2 = url;
 
+  var userr = $(this).data('user');
+
   $(".hehe").html("");
   $('.all').removeClass('btn-secondary-category-active');
 
   $('.kategori').removeClass('btn-secondary-category-active');
   $(this).removeClass('btn-secondary-category').addClass('btn-secondary-category-active');
-
-  console.log($(this).attr("class"));
 
   output = "<div class='col-lg-3 mb-4'>";
   output += "<div class='card pricing popular'>";
@@ -101,6 +105,9 @@ $('.kategoriAll').click(function () {
 
   $.ajax({
     type: "POST",
+     data: {
+      user: userr
+    },
     url: base_url + 'User/getKategoriAll',
     success: function (result) {
       var objResult = JSON.parse(result);
