@@ -32,7 +32,7 @@
                         <div class="modal-body">Klik tombol logout</div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <a class="btn btn-primary" href="<?= base_url('auth/logout'); ?>">Logout</a>
+                            <a class="btn" style="background-color:#ff9597; color:#ffffff" href="<?= base_url('auth/logout'); ?>">Logout</a>
                         </div>
                     </div>
                 </div>
@@ -48,14 +48,31 @@
             <!-- Custom scripts for all pages-->
             <script src="<?= base_url('assets/vendor/sbadmin/js/sb-admin-2.min.js'); ?>"></script>
 
+            <!-- DataTable -->
+            <script src="<?= base_url('assets/vendor/sbadmin/datatables/jquery.dataTables.min.js'); ?>"></script>
+            <script src="<?= base_url('assets/vendor/sbadmin/datatables/dataTables.bootstrap4.min.js'); ?>"></script>
+            
+
             
 
 
             <!-- Custom scripts for all pages-->
             <script src="<?= base_url('assets/vendor/sbadmin/js/admin.js'); ?>"></script>
+            <script>
+            $(document).ready(function(){
+    
+                $('#dataTable').DataTable();
 
 
-
+                if (window.location.href.indexOf("ras") > -1) {
+                    $('#menu-ras').addClass('active');
+                    return ;
+                }else if (window.location.href.indexOf("admin") > -1) {
+                    $('#menu-dashboard').addClass('active');
+                    return ;
+                }
+            });
+            </script>
             </body>
 
             </html> 

@@ -98,7 +98,7 @@
                             <?php foreach($userTerbaru as $row): ?>
                             <tr>
                               <td>
-                                <img src="">
+                                <img src="<?= base_url('assets/images/default.jpg')?>">
                                 <h1><?= $row['nama'] ?></h1>
                                   <p><i class="fas fa-fw fa-users"></i> &nbsp;<?= $row['kota'] ?></p>
                               </td>

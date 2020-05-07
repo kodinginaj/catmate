@@ -380,7 +380,7 @@ class User extends CI_Controller {
 
 		$this->load->view('template/user/header_user', $data);
 		$this->load->view('template/user/menu_user');
-		$this->load->view('user/ubahKucing', $data);
+		$this->load->view('user/ubahkucing', $data);
 		$this->load->view('template/user/footer_user');
 	}
 
