@@ -1,5 +1,5 @@
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" style="background-color: #ff9597" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -17,15 +17,15 @@
             </div>
 
                 
-            <li class="nav-item active">
+            <li class="nav-item" id="menu-dashboard"> 
                 <a class="nav-link pb-0" href="<?= base_url('admin'); ?>">
                     <i class="fas fa-user"></i>
                     <span>Dashboard</span></a>
             </li>
 
-             <li class="nav-item">
+             <li class="nav-item" id="menu-ras">
                 <a class="nav-link pb-0" href="<?= base_url('admin/ras'); ?>">
-                    <i class="fas fa-user"></i>
+                    <i class="fas fa-paw"></i>
                     <span>Ras Kucing</span></a>
             </li>
        

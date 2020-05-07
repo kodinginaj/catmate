@@ -9,7 +9,7 @@
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800"><?= $title; ?></h1>
-             <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#tambahRas"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Ras</button>
+             <button type="button" class="d-none d-sm-inline-block btn btn-sm shadow-sm" style="background-color:#ff9597; color:#ffffff" data-toggle="modal" data-target="#tambahRas"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Ras</button>
           </div>
 
           <!-- Content Row -->
@@ -17,8 +17,10 @@
             <div class="col-lg-12">
               <div class="card shadow">
                 <div class="card-body">
+
                   <table class="table table-striped" id="data-table">
                     <thead>
+
                     <tr>
                      
                         <th>#</th>
@@ -62,7 +64,7 @@
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                              <button type="submit" class="btn btn-primary">Simpan</button>
+                              <button type="submit" class="btn" style="background-color:#ff9597; color:#ffffff">Simpan</button>
                             </div>
                           </div>
                         </form>
@@ -99,7 +101,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                  <button type="submit" class="btn btn-primary">Simpan</button>
+                  <button type="submit" class="btn" style="background-color:#ff9597; color:#ffffff">Simpan</button>
                 </div>
               </div>
             </form>

@@ -20,6 +20,8 @@
 
     <!-- ADMIN CSS-->
     <link href="<?= base_url('assets/vendor/sbadmin/css/admin.css'); ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/vendor/sbadmin/datatables/dataTables.bootstrap4.min.css'); ?>" rel="stylesheet">
+
     <script src="<?= base_url('assets/vendor/sbadmin/jquery/jquery.min.js'); ?>"></script>
 
 
