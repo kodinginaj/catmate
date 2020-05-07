@@ -91,4 +91,87 @@ class KucingModel extends CI_Model
         $user = $this->db->get()->num_rows();
         return $user;
     }
+
+
+    function filterKota($kota){
+
+        $this->db->select("kucing.*, user.kota");
+        $this->db->from("kucing");
+        $this->db->join('user','kucing.user_id = user.id');
+        $this->db->where("kota", $kota);
+
+        $data = $this->db->get()->result_array();
+        return $data;
+    }
+
+    function filterKotaRas($kota, $ras){
+
+        $this->db->select("kucing.*, user.kota");
+        $this->db->from("kucing");
+        $this->db->join('user','kucing.user_id = user.id');
+        $this->db->where("kota", $kota);
+        $this->db->where_in("ras", $ras);
+
+        $data = $this->db->get()->result_array();
+        return $data;
+    }
+
+    function filterKotaJK($kota, $jk){
+
+        $this->db->select("kucing.*, user.kota");
+        $this->db->from("kucing");
+        $this->db->join('user','kucing.user_id = user.id');
+        $this->db->where("kota", $kota);
+        $this->db->where("jk", $jk);
+
+        $data = $this->db->get()->result_array();
+        return $data;
+    }
+
+    function filterAll($kota, $jk, $ras){
+
+        $this->db->select("kucing.*, user.kota");
+        $this->db->from("kucing");
+        $this->db->join('user','kucing.user_id = user.id');
+        $this->db->where('user.kota', $kota);
+        $this->db->where("jk", $jk);
+        $this->db->where_in("ras_id",$ras);
+
+
+        $data = $this->db->get()->result_array();
+        return $data;
+    }
+
+     function filterRas($ras){
+
+        $this->db->select("*");
+        $this->db->from("kucing");
+        $this->db->where_in("ras_id", $ras);
+
+        $data = $this->db->get()->result_array();
+        return $data;
+    }
+
+
+    function filterJK($jk){
+
+        $this->db->select("*");
+        $this->db->from("kucing");
+        $this->db->where("jk", $jk);
+
+        $data = $this->db->get()->result_array();
+        return $data;
+    }
+
+     function filterRasJK($jk, $ras){
+
+        $this->db->select("*");
+        $this->db->from("kucing");
+        $this->db->where_in("ras_id", $ras);
+        $this->db->where("jk", $jk);
+
+        $data = $this->db->get()->result_array();
+        return $data;
+    }
+
 }

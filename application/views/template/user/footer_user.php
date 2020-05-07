@@ -13,6 +13,7 @@
     
     <!-- MY SCRIPT -->
     <script src="<?= base_url('assets/js/script_user.js'); ?>"></script>
+    <script src="<?= base_url('assets/js/main.js'); ?>"></script>
 
     <!-- SELECT 2 -->
     <script src="<?= base_url('assets/vendor/select2/js/select2.js'); ?>"></script>
