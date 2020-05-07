@@ -71,7 +71,6 @@
               $(document).ready(function() {
               $('#data-table').DataTable();
                  } );
-            </script>
 
 
                 if (window.location.href.indexOf("ras") > -1) {
