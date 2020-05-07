@@ -61,9 +61,7 @@
             <script>
             $(document).ready(function(){
     
-                $('#dataTable').DataTable();
-
-
+                $('#datatable').DataTable();
                 if (window.location.href.indexOf("ras") > -1) {
                     $('#menu-ras').addClass('active');
                     return ;
