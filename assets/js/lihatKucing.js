@@ -51,10 +51,10 @@ $('.kategori').click(function () {
         output += "</div>";
         output += "<div class='row'>";
         output += "<div class='col-lg-6 pr-2'>";
-        output += "<a href='#' class='btn btn-catmate btn-lg btn-block mt-4'>Detail</a>";
+        output += "<a href='"+base_url+'user/detailKucing/'+v.id+"' class='btn btn-catmate btn-lg btn-block mt-4'>Detail</a>";
         output += "</div>";
         output += "<div class='col-lg-6 pl-2'>";
-        output += "<a href='#' class='btn btn-catmate-secondary btn-block mt-4'>Edit</a>";
+        output += "<a href='"+base_url+'user/ubahKucing/'+v.id+"' class='btn btn-catmate-secondary btn-block mt-4'>Edit</a>";
         output += "</div>";
         output += "</div>";
         output += "</div>";
@@ -117,10 +117,10 @@ $('.kategoriAll').click(function () {
         output += "</div>";
         output += "<div class='row'>";
         output += "<div class='col-lg-6 pr-2'>";
-        output += "<a href='#' class='btn btn-catmate btn-lg btn-block mt-4'>Detail</a>";
+        output += "<a href='"+base_url+'user/detailKucing/'+v.id+"' class='btn btn-catmate btn-lg btn-block mt-4'>Detail</a>";
         output += "</div>";
         output += "<div class='col-lg-6 pl-2'>";
-        output += "<a href='#' class='btn btn-catmate-secondary btn-block mt-4'>Edit</a>";
+        output += "<a href='"+base_url+'user/ubahKucing/'+v.id+"' class='btn btn-catmate-secondary btn-block mt-4'>Edit</a>";
         output += "</div>";
         output += "</div>";
         output += "</div>";

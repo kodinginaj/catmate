@@ -21,7 +21,6 @@ class User extends CI_Controller {
 		$this->load->view('template/user/header_user', $data);
 		$this->load->view('template/user/menu_user');
 		$this->load->view('template/user/jumbotron_user');
-		$this->load->view('template/user/searchengine');
 		$this->load->view('user/index', $data);
 		$this->load->view('template/user/footer_user');
 	}
@@ -155,6 +154,52 @@ class User extends CI_Controller {
 	}
 
 
+	public function filterKucing(){
+		$jk = $this->input->post('jk');
+		$kota = $this->input->post('kota');
+		$ras = $this->input->post('ras');
+
+		if($kota != null){
+			if ($jk == null && $ras==null) {
+				// kota
+				$kucing = $this->KucingModel->filterKota($kota);
+				$data = $kucing;
+			}else if($jk == null){
+				//kota ras
+				$kucing = $this->KucingModel->filterKotaRas($kota, $ras);
+				$data = $kucing;
+			}else if($ras == null){
+				$kucing = $this->KucingModel->filterKotaJK($kota, $jk);
+				$data = $kucing;
+			}else{
+				//Semua
+				$kucing = $this->KucingModel->filterAll($kota, $jk, $ras);
+				$data = $kucing;
+			}
+			
+		}else {
+			if ($jk == null) {
+				// ras
+				$kucing = $this->KucingModel->filterRas($ras);
+				$data = $kucing;
+			}else if($ras == null){
+				// jk
+				$kucing = $this->KucingModel->filterJK($jk);
+				$data = $kucing;
+			}else{
+				//ras jk
+				$kucing = $this->KucingModel->filterRasJK($jk,$ras);
+				$data = $kucing;
+			}
+			
+		}
+
+		
+
+		echo json_encode($data);
+	}
+
+
 	public function tambahKucingProses(){
 			$this->form_validation->set_rules('nama', 'Nama', 'required|trim');
 			$this->form_validation->set_rules('ras_id', 'Ras', 'required|trim');
@@ -244,18 +289,26 @@ class User extends CI_Controller {
 					$foto = $this->input->post("old_foto");
         		}else{
 
-        		unlink(FCPATH . $this->input->post("old_foto"));
-				$fotoo = $_FILES['foto']['name'];
-				$foto = "assets/img_kucing/".$fotoo;
+	        		unlink(FCPATH . $this->input->post("old_foto"));
+	        		$foto = $_FILES['foto']['name'];
 
-				$config = array();
-				$config['allowed_types'] = 'jpg|png|pdf|doc';
-				$config['max_size'] = '2048';
-				$config['upload_path'] = 'assets/img_kucing';
+					$belah = explode('.',$foto);
+					$ekstensi = strtolower(end($belah));
+					
+					$namaBaru = $this->session->userdata('id');
+					$namaBaru .= $belah[0];
+					$namaBaruDB = $namaBaru.".".$ekstensi;
+					$foto = '/assets/img_kucing/'.$namaBaruDB;
 
-				$this->load->library('upload', $config, 'fotokucing');
-				$this->fotokucing->initialize($config);
-				$this->fotokucing->do_upload('foto');
+					$config = array();
+					$config['file_name'] = $namaBaru;
+					$config['allowed_types'] = 'jpg|png|pdf|doc';
+					$config['max_size'] = '2048';
+					$config['upload_path'] = 'assets/img_kucing';
+
+					$this->load->library('upload', $config, 'fotokucing');
+					$this->fotokucing->initialize($config);
+					$this->fotokucing->do_upload('foto');
 				}
 
 				$data = [
@@ -285,11 +338,11 @@ class User extends CI_Controller {
 
 	}
 
-	public  function detailkucing()
+	public  function detailkucing($id)
 	{
 		$data['title'] = 'Catmate | Aplikasi pencarian jodoh untuk kucing';
 
-		$id = $this->input->get('id');
+		// $id = $this->input->get('id');
 		$data['kucing'] = $this->KucingModel->getDetailCats($id);
 		$data['kucinglainnya'] = $this->KucingModel->getKucingLainnya();
 
@@ -314,12 +367,10 @@ class User extends CI_Controller {
 		$this->load->view('template/user/footer_user');
 	}
 
-	public function ubahKucing()
+	public function ubahKucing($id)
 	{
 		$data['title'] = 'Catmate | Aplikasi pencarian jodoh untuk kucing';
 		$data['ras'] = $this->RasModel->getRas();
-
-		$id = $this->input->get("id");
 
 		$this->db->select("*");
 		$this->db->from("kucing");

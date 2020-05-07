@@ -5,20 +5,21 @@
                 <div class="col-lg-3">
                     <div class="card pricing popular">
                         <div class="card-category">Ras / Jenis Kucing</div>
-                        <?php foreach ($rasLimit as $row) : ?>
-                            <div class="form-group m-0 isi-category">
-                                <label class="bungkus-check m-0"><span class="txt-dark"><?= $row['nama'] ?></span>
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div> 
-                        <?php endforeach; ?>
-                              
+                        <div id="rasTampung">
+                            <?php foreach ($rasLimit as $row) : ?>
+                                <div class="form-group m-0 isi-category">
+                                    <label class="bungkus-check m-0"><span class="txt-dark "><?= $row['nama'] ?></span>
+                                        <input type="checkbox" class="listnama" value="<?= $row['id'] ?>">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div> 
+                            <?php endforeach; ?>
+                        </div>
                         <div class="form-group m-2 ml-4 ">
                               <select name="" id="cariRas" class="form-group select2">
                                   <option value="">Cari ras lain</option>
                                   <?php foreach ($ras as $row) : ?>
-                                      <option value="<?= $row['id'] ?>"><?= $row['nama'] ?></option>
+                                      <option value="<?= $row['id'] ?>" data-nama="<?= $row['nama'] ?>" data-id="<?= $row['id'] ?>"><?= $row['nama'] ?></option>
                                   <?php endforeach; ?>
                                   
                               </select>
@@ -27,64 +28,66 @@
                         <div class="card-category">Jenis Kelamin</div>
                         <div class="form-group m-0 isi-category">
                             <label class="bungkus-check m-0"><span class="txt-dark">Jantan</span>
-                              <input type="radio" name="jtn">
+                              <input type="radio" name="jtn" value="Jantan" class="jkucing">
                               <span class="checkmark"></span>
                             </label>
                         </div> 
                         <div class="form-group m-0 isi-category">
                             <label class="bungkus-check m-0"><span class="txt-dark">Betina</span>
-                              <input type="radio" name="jtn">
+                              <input type="radio" name="jtn" value="Betina" class="jkucing">
                               <span class="checkmark"></span>
                             </label>
                         </div>  
                         <div class="card-category">Lokasi</div>
-                        <div class="form-group m-0 isi-category">
+                       <!--  <div class="form-group m-0 isi-category">
                             <label class="bungkus-check m-0"><span class="txt-dark">DKI Jakarta</span>
                               <input type="checkbox" checked="checked">
                               <span class="checkmark"></span>
                             </label>
-                        </div>
-                        <div class="form-group m-0 isi-category-sub">
-                            <label class="bungkus-check m-0"><span class="txt-dark">Jakarta Selatan</span>
-                              <input type="checkbox" checked="checked">
+                        </div> -->
+                        <div class="form-group m-0 isi-category">
+                            <label class="bungkus-check m-0"><span class="txt-dark">Jakarta Barat</span>
+                              <input type="radio" class="rbtempat" name="rbtempat" value="Jakarta Barat">
                               <span class="checkmark"></span>
                             </label>
                         </div>
-                        <div class="form-group m-0 isi-category-sub">
+                        <div class="form-group m-0 isi-category">
                             <label class="bungkus-check m-0"><span class="txt-dark">Jakarta Selatan</span>
-                              <input type="checkbox">
+                              <input type="radio" class="rbtempat" name="rbtempat" value="Jakarta Selatan">
                               <span class="checkmark"></span>
                             </label>
                         </div>
-                        <div class="form-group m-0 isi-category-sub">
+                        <div class="form-group m-0 isi-category">
                             <label class="bungkus-check m-0"><span class="txt-dark">Jakarta Pusat</span>
-                              <input type="checkbox">
+                              <input type="radio" class="rbtempat" name="rbtempat" value="Jakarta Pusat">
                               <span class="checkmark"></span>
                             </label>
                         </div>
-                        <div class="form-group m-0 isi-category-sub">
+                        <div class="form-group m-0 isi-category">
                             <label class="bungkus-check m-0"><span class="txt-dark">Jakarta Timur</span>
-                              <input type="checkbox">
+                              <input type="radio" class="rbtempat" name="rbtempat" value="Jakarta Timur">
                               <span class="checkmark"></span>
                             </label>
                         </div>
-                        <div class="form-group m-0 isi-category-sub">
+                        <div class="form-group m-0 isi-category">
                             <label class="bungkus-check m-0"><span class="txt-dark">Jakarta Utara</span>
-                              <input type="checkbox">
+                              <input type="radio" class="rbtempat" name="rbtempat" value="Jakarta Utara">
                               <span class="checkmark"></span>
                             </label>
                         </div>
-
+                       <div class="card-category">
+                         <button type="button" id="btnCari" class="btn btn-catmate btn-lg btn-block">Cari Kucing</button>
+                        </div>
                         
                     </div>
                 </div>
                 <div class="col-lg-9">
-                     <div class="row">
+                <div class="row listkucing">
 
               <?php
               foreach($kucing as $row): ?>
 
-                <div class="col-lg-3 mb-4">
+                <div class="col-lg-4 mb-4">
                     <div class="card pricing popular">
                         <div class="card-body">
                             <div class="bungkus-card">
@@ -106,7 +109,7 @@
 
                 </div>
               </div>
-            </div>
+            </div> 
             
 
             </div>
@@ -114,7 +117,7 @@
             
               <div class="col-lg-12 text-center">
                     <!-- Pagination   -->
-                <nav aria-label="Page navigation example">
+               <!--  <nav aria-label="Page navigation example">
                   <ul class="pagination justify-content-center">
                     <li class="page-item">
                       <a class="page-link" href="" aria-label="Previous">
@@ -135,7 +138,7 @@
                       </a>
                     </li>
                   </ul>
-                </nav>
+                </nav> -->
                 <!-- Akhir Pagination -->
                 </div>
          
