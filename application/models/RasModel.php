@@ -13,6 +13,17 @@ class RasModel extends CI_Model
         return $data;
     }
 
+    public function getRasLimit()
+    {
+        $this->db->select('*'); 
+        $this->db->from('ras');
+        $this->db->order_by('nama','asc');
+        $this->db->limit('3','0');
+        $ras = $this->db->get();
+        $data = $ras->result_array();
+        return $data;
+    }
+
     function countRas(){
         $this->db->select('id'); 
         $this->db->from('ras');

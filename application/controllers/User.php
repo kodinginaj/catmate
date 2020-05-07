@@ -15,6 +15,8 @@ class User extends CI_Controller {
 		$data['title'] = 'Catmate | Aplikasi pencarian jodoh untuk kucing';
 
 		$data['kucing'] = $this->KucingModel->getAllCats();
+		$data['ras'] = $this->RasModel->getRas();
+		$data['rasLimit'] = $this->RasModel->getRasLimit();
 
 		$this->load->view('template/user/header_user', $data);
 		$this->load->view('template/user/menu_user');
