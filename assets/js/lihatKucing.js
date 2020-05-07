@@ -16,10 +16,10 @@ $('.kategori').click(function () {
 
   output = "<div class='col-lg-3 mb-4'>";
   output += "<div class='card pricing popular'>";
-  output += "<div class='card-body'>";
+  output += "<div class='card-body' style='height: 400px'>";
   output += "<a href=''>";
   output += "<div class='bungkus-card-tambah'>";
-  output += "<img src='" + base_url2 + "assets/images/addcat.png' class='w-100'>";
+  output += "<img src='" + base_url2 + "assets/images/addcat.png' class='w-100'  style='margin-top: 30px'>";
   output += "<div class='overlay'>";
   output += " <div class='text'>Add A Cat</div>";
   output += "</div>";
@@ -49,12 +49,15 @@ $('.kategori').click(function () {
         output += "</div>";
         output += "</div>";
         output += "</div>";
+        output += "<div class='col-lg-12 pr-2'>";
+        output += "<a href='"+base_url+'user/detailKucing/'+v.id+"' class='btn btn-catmate btn-lg btn-block mt-4'>Detail</a>"
+        output += "</div>"
         output += "<div class='row'>";
         output += "<div class='col-lg-6 pr-2'>";
-        output += "<a href='"+base_url+'user/detailKucing/'+v.id+"' class='btn btn-catmate btn-lg btn-block mt-4'>Detail</a>";
+        output += "<a href='"+base_url+'user/ubahKucing/'+v.id+"' class='btn btn-catmate-secondary btn-block mt-4'>Ubah</a>";
         output += "</div>";
         output += "<div class='col-lg-6 pl-2'>";
-        output += "<a href='"+base_url+'user/ubahKucing/'+v.id+"' class='btn btn-catmate-secondary btn-block mt-4'>Edit</a>";
+        output += "<a href='"+base_url+'user/hapusKucing/'+v.id+"' class='btn btn-catmate-secondary btn-block mt-4'>Hapus</a>";
         output += "</div>";
         output += "</div>";
         output += "</div>";
@@ -83,10 +86,10 @@ $('.kategoriAll').click(function () {
 
   output = "<div class='col-lg-3 mb-4'>";
   output += "<div class='card pricing popular'>";
-  output += "<div class='card-body'>";
+  output += "<div class='card-body' style='height: 400px'>";
   output += "<a href=''>";
   output += "<div class='bungkus-card-tambah'>";
-  output += "<img src='" + base_url2 + "assets/images/addcat.png' class='w-100'>";
+  output += "<img src='" + base_url2 + "assets/images/addcat.png' class='w-100' style='margin-top: 30px'>";
   output += "<div class='overlay'>";
   output += " <div class='text'>Add A Cat</div>";
   output += "</div>";
@@ -115,12 +118,15 @@ $('.kategoriAll').click(function () {
         output += "</div>";
         output += "</div>";
         output += "</div>";
+        output += "<div class='col-lg-12 pr-2'>";
+        output += "<a href='"+base_url+'user/detailKucing/'+v.id+"' class='btn btn-catmate btn-lg btn-block mt-4'>Detail</a>"
+        output += "</div>"
         output += "<div class='row'>";
         output += "<div class='col-lg-6 pr-2'>";
-        output += "<a href='"+base_url+'user/detailKucing/'+v.id+"' class='btn btn-catmate btn-lg btn-block mt-4'>Detail</a>";
+        output += "<a href='"+base_url+'user/ubahKucing/'+v.id+"' class='btn btn-catmate-secondary btn-block mt-4'>Ubah</a>";
         output += "</div>";
         output += "<div class='col-lg-6 pl-2'>";
-        output += "<a href='"+base_url+'user/ubahKucing/'+v.id+"' class='btn btn-catmate-secondary btn-block mt-4'>Edit</a>";
+        output += "<a href='"+base_url+'user/hapusKucing/'+v.id+"' class='btn btn-catmate-secondary btn-block mt-4'>Hapus</a>";
         output += "</div>";
         output += "</div>";
         output += "</div>";

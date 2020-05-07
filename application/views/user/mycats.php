@@ -24,10 +24,10 @@
             <div class="row hehe">
                 <div class="col-lg-3 mb-4">
                     <div class="card pricing popular">
-                        <div class="card-body">
+                        <div class="card-body" style="height: 400px">
                             <a href="<?= base_url('user/tambahkucing'); ?>">
                             <div class="bungkus-card-tambah">
-                                <img src="<?= base_url('assets/images/addcat.png'); ?>" class="w-100">
+                                <img src="<?= base_url('assets/images/addcat.png'); ?>" class="w-100" style="margin-top: 30px">
                                 <div class="overlay">
                                     <div class="text">
                                         Add Cat
@@ -52,12 +52,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-6 pr-2">
+                            <div class="col-lg-12 pr-2">
                                     <a href="<?= base_url('user/detailKucing/').$row['id'] ?>" class="btn btn-catmate btn-lg btn-block mt-4">Detail</a>
                                 </div>
+                            <div class="row">
+                                <div class="col-lg-6 pr-2">
+                                    <a href="<?= base_url('user/ubahKucing/').$row['id'] ?>" class="btn btn-catmate-secondary btn-block mt-4">Ubah</a>
+                                </div>
                                 <div class="col-lg-6 pl-2">
-                                    <a href="<?= base_url('user/ubahKucing/').$row['id'] ?>" class="btn btn-catmate-secondary btn-block mt-4">Edit</a>
+                                    <a href="<?= base_url('user/hapusKucing/').$row['id'] ?>" class="btn btn-catmate-secondary btn-block mt-4">Hapus</a>
                                 </div>
                             </div>
                             

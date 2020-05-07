@@ -367,6 +367,17 @@ class User extends CI_Controller {
 		$this->load->view('template/user/footer_user');
 	}
 
+	public function hapusKucing($id)
+	{
+
+		$this->db->where("id",$id);
+		$this->db->delete("kucing");
+
+
+		$this->session->set_flashdata('message', 'Kucing berhasil dihapus');
+		redirect('user/mycats');
+	}
+
 	public function ubahKucing($id)
 	{
 		$data['title'] = 'Catmate | Aplikasi pencarian jodoh untuk kucing';
