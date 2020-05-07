@@ -18,23 +18,27 @@
               <div class="card shadow">
                 <div class="card-body">
                   <table class="table table-striped" id="data-table">
+                    <thead>
                     <tr>
-                      <thead>
+                     
                         <th>#</th>
                         <th>Nama Ras</th>
                         <th>Action</th>
-                      </thead>
+                      
                     </tr>
-                    <?php foreach($ras as $index => $key): ?>
-                    <tr>
+                    </thead>
                       <tbody>
+                    <?php foreach($ras as $index => $key): ?>
+                
+                    <tr>
+                     
                         <td><?= $index + 1 ?></td>
                         <td><?= $key['nama'] ?></td>
                         <td>
                           <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambahRas-<?= $key['id'] ?>">Ubah</button> 
                           <!-- | <button class="btn btn-danger btn-sm">Delete</button> -->
                         </td>
-                      </tbody>
+                      
                     </tr>
 
                     <!-- Modal Ubah Ras -->
@@ -65,7 +69,9 @@
                       </div>
                     </div>
                     <!-- Akhir modal -->
-                    <?php endforeach; ?>     
+
+                    <?php endforeach; ?>   
+                    </tbody>  
                   </table>
                 </div>
               </div>
@@ -99,3 +105,13 @@
             </form>
           </div>
         </div>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+        <script type="text/javascript">
+          $(document).ready(function() {
+          $('#data-table').DataTable();
+      } );
+        </script>
