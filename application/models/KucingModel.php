@@ -110,7 +110,7 @@ class KucingModel extends CI_Model
         $this->db->from("kucing");
         $this->db->join('user','kucing.user_id = user.id');
         $this->db->where("kota", $kota);
-        $this->db->where_in("ras", $ras);
+        $this->db->where_in("ras_id", $ras);
 
         $data = $this->db->get()->result_array();
         return $data;
