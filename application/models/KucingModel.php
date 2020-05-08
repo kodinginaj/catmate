@@ -7,7 +7,7 @@ class KucingModel extends CI_Model
     {
         $this->db->select('*'); 
         $this->db->from('kucing a');
-        // $this->db->where('a.user_id', $id);
+        $this->db->where('a.user_id', $id);
         $kucing = $this->db->get();
         $data = $kucing->result_array();
         return $data;
