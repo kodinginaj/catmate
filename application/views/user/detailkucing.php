@@ -90,6 +90,12 @@
                                                 <td> <?= $totalmonths ?> bulan</td>
                                             </tr>
                                             <tr>
+                                                <td>Lokasi</td>
+                                                <td>:</td>
+                                                <td><?= $kucing['user']['kota'] ?></td>
+                                            </tr>
+                                            <tr>
+                                            <tr>
                                                 <td>Keterangan</td>
                                                 <td>:</td>
                                                 <td><?= $kucing['biodata'] ?></td>

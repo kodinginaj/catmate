@@ -13,10 +13,10 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 mb-4">
-                    <button type="button" class="btn btn-secondary-category-active btn-sm all kategoriAll">All <span class="badge badge-primary"><?= $count ?></span></button>
+                    <button type="button" data-user="<?= $this->session->userdata('id') ?>" class="btn btn-secondary-category-active btn-sm all kategoriAll">All <span class="badge badge-primary"><?= $count ?></span></button>
 
                     <?php foreach($ras as $row2) : ?>
-                      <button type="button" data-id="<?= $row2['id'] ?>" class="btn btn-secondary-category btn-sm kategori"><?= $row2['nama'] ?>&nbsp; <span class="badge badge-primary-active"><?= $row2['total'] ?></span></button>
+                      <button type="button" data-user="<?= $this->session->userdata('id') ?>" data-id="<?= $row2['id'] ?>" class="btn btn-secondary-category btn-sm kategori"><?= $row2['nama'] ?>&nbsp; <span class="badge badge-primary-active"><?= $row2['total'] ?></span></button>
                     <?php endforeach; ?>
 
                 </div>

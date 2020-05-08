@@ -15,14 +15,14 @@ class KucingModel extends CI_Model
 
 
     public function countCats($id){
-        $query = $this->db->query('SELECT * FROM kucing');
+        $query = $this->db->query('SELECT * FROM kucing JOIN user ON kucing.user_id = user.id WHERE user.id = '.$id.'');
         return $query->num_rows();
     }
 
-    public function getRas()
+    public function getRas($id)
     {
         $query = $this->db->query('SELECT ras.id, ras.nama, ras_id, COUNT( * ) as total FROM kucing
-            JOIN ras ON ras.id = kucing.ras_id
+            JOIN ras ON ras.id = kucing.ras_id JOIN user ON user.id = kucing.user_id WHERE user.id = '.$id.'
                      GROUP BY ras_id
             ');
         return $query->result_array();
