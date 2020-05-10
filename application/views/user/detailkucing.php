@@ -1,41 +1,55 @@
 <script>
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-        // var lat = document.getElementById('map').getAttribute('lat');
+      function initMap() {
+        var myLatlng = {lat: <?= $kucing['user']['latitude'] ?>, lng: <?= $kucing['user']['longitude'] ?>};
 
-
-    function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: <?= $kucing['user']['latitude'] ?>, lng: <?= $kucing['user']['longitude'] ?>},
-            zoom: 15
+          zoom: 15,
+          center: myLatlng
         });
 
-        var request = {
-            placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4',
-            fields: ['name', 'formatted_address', 'place_id', 'geometry']
-        };
-
-        var infowindow = new google.maps.InfoWindow();
-        var service = new google.maps.places.PlacesService(map);
-
-        service.getDetails(request, function(place, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-            var marker = new google.maps.Marker({
-                map: map,
-                position: place.geometry.location
-            });
-            google.maps.event.addListener(marker, 'click', function() {
-                infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-                'Place ID: ' + place.place_id + '<br>' +
-                place.formatted_address + '</div>');
-                infowindow.open(map, this);
-            });
-            }
+        var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title: 'Lihat alamat'
         });
-    }
-</script>
 
+        map.addListener('center_changed', function() {
+          // 3 seconds after the center of the map has changed, pan back to the
+          // marker.
+          window.setTimeout(function() {
+            map.panTo(marker.getPosition());
+          }, 3000);
+        });
+
+        marker.addListener('click', function() {
+            $('#modalPosisi').modal('show');
+            // map.setZoom(8);
+            // map.setCenter(marker.getPosition());
+        });
+      }
+    </script>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalPosisi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Alamat Lengkap</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>
+                <?= $kucing['user']['alamat'] ?> 
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+    </div>
 
 
 
